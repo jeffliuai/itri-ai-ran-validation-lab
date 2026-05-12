@@ -246,7 +246,7 @@
 <tr><td><strong>成功指標</strong></td><td>台灣設備商與 AI-RAN 解決方案進入國際 vendor matrix / validation chain，並建立 ITRI 在 AI-RAN deployment validation 的差異化位置。</td></tr>
 </tbody></table>
 <blockquote>
-<p><strong>Goal C 是 Lab 的技術核心。</strong> <a href="#goal-a">Goal A</a>、B、D、E 是由 <a href="#goal-c">Goal C</a> 驗證能力支撐的 ecosystem outcomes。</p>
+<p><strong>Goal C 是 Lab 的技術核心。</strong> <a href="#goal-a">Goal A</a>、<a href="#goal-b">Goal B</a>、<a href="#goal-d">Goal D</a>、<a href="#goal-e">Goal E</a> 是由 <a href="#goal-c">Goal C</a> 驗證能力支撐的 ecosystem outcomes。</p>
 </blockquote>
 <h2 id="goals-overview" class="overview-h2">五大目標總覽</h2>
 <table>
@@ -359,7 +359,7 @@
 </ul>
 <h3 id="b2-廠商優先序確認">B2. 廠商優先序確認</h3>
 <blockquote>
-<p>狀態：依設備到位程度、合作意願、對 <a href="#goal-a">Goal A</a> / B 的 strategic leverage 分類。實際測試流程放在 <a href="#goal-c">Goal C</a> / <a href="#c1" class="ct-badge">C1</a>。</p>
+<p>狀態：依設備到位程度、合作意願、對 <a href="#goal-a">Goal A</a> / <a href="#goal-b">Goal B</a> 的 strategic leverage 分類。實際測試流程放在 <a href="#goal-c">Goal C</a> / <a href="#c1" class="ct-badge">C1</a>。</p>
 </blockquote>
 <p class="track-label"><em>Category A：Immediate test candidates</em></p>
 <ul>
@@ -398,18 +398,18 @@
 <hr>
 <h2 id="goal-c" style="background:#6d28d9">Goal C：Lab Validation Capability Portfolio</h2>
 <blockquote>
-<p><strong>定位</strong>：<a href="#goal-c">Goal C</a> 是 Lab 的技術核心，集中管理所有需要建立的驗證能力。<a href="#goal-a">Goal A</a> / B / D / E 均依賴 <a href="#goal-c">Goal C</a> 的測試成果作為 proof object。</p>
+<p><strong>定位</strong>：<a href="#goal-c">Goal C</a> 是 Lab 的技術核心，集中管理所有需要建立的驗證能力。<a href="#goal-a">Goal A</a> / <a href="#goal-b">Goal B</a> / <a href="#goal-d">Goal D</a> / <a href="#goal-e">Goal E</a> 均依賴 <a href="#goal-c">Goal C</a> 的測試成果作為 proof object。</p>
 <p><strong>路線</strong>：從 OCUDU + O-RU 互通性開始，逐步延伸到 L1 / PHY、Neural Receiver、ES rApp 與 Digital Twin / AI-RAN validation。</p>
 </blockquote>
 <table>
 <thead><tr><th>Step</th><th>Validation Capability</th><th>Test Focus</th><th>Supports</th></tr></thead>
 <tbody>
-<tr><td><strong>Step 1</strong></td><td>OCUDU + O-RU Interoperability</td><td>不同 O-RU 的 fronthaul 連通、互通性、參數設定與問題定位</td><td><a href="#goal-a">Goal A</a> / B</td></tr>
-<tr><td><strong>Step 2A</strong></td><td>CPU PHY Path</td><td>OCUDU + srsRAN L1 + DeepSig OmniPHY，建立 open-source CPU baseline</td><td><a href="#goal-c">Goal C</a> / D</td></tr>
-<tr><td><strong>Step 2B</strong></td><td>GPU PHY Path</td><td>OCUDU + NVIDIA Aerial cuPHY + optional OmniPHY，建立 GPU-accelerated baseline</td><td><a href="#goal-c">Goal C</a> / D</td></tr>
-<tr><td><strong>Step 3</strong></td><td>Neural Receiver Validation</td><td>傳統接收機 vs. AI-native receiver KPI comparison</td><td><a href="#goal-d">Goal D</a> / E</td></tr>
-<tr><td><strong>Step 4</strong></td><td>ES rApp / AI-RAN Use Case Validation</td><td>PM data ingestion → rApp decision logic → O1 / NETCONF control loop</td><td><a href="#goal-d">Goal D</a> / E</td></tr>
-<tr><td><strong>Step 5</strong></td><td>Digital Twin / AI-RAN Validation Environment</td><td>將真實測試結果延伸到模擬與數位孿生驗證環境</td><td><a href="#goal-d">Goal D</a> / E</td></tr>
+<tr><td><strong>Step 1</strong></td><td>OCUDU + O-RU Interoperability</td><td>不同 O-RU 的 fronthaul 連通、互通性、參數設定與問題定位</td><td><a href="#goal-a">Goal A</a> / <a href="#goal-b">Goal B</a></td></tr>
+<tr><td><strong>Step 2A</strong></td><td>CPU PHY Path</td><td>OCUDU + srsRAN L1 + DeepSig OmniPHY，建立 open-source CPU baseline</td><td><a href="#goal-c">Goal C</a> / <a href="#goal-d">Goal D</a></td></tr>
+<tr><td><strong>Step 2B</strong></td><td>GPU PHY Path</td><td>OCUDU + NVIDIA Aerial cuPHY + optional OmniPHY，建立 GPU-accelerated baseline</td><td><a href="#goal-c">Goal C</a> / <a href="#goal-d">Goal D</a></td></tr>
+<tr><td><strong>Step 3</strong></td><td>Neural Receiver Validation</td><td>傳統接收機 vs. AI-native receiver KPI comparison</td><td><a href="#goal-d">Goal D</a> / <a href="#goal-e">Goal E</a></td></tr>
+<tr><td><strong>Step 4</strong></td><td>ES rApp / AI-RAN Use Case Validation</td><td>PM data ingestion → rApp decision logic → O1 / NETCONF control loop</td><td><a href="#goal-d">Goal D</a> / <a href="#goal-e">Goal E</a></td></tr>
+<tr><td><strong>Step 5</strong></td><td>Digital Twin / AI-RAN Validation Environment</td><td>將真實測試結果延伸到模擬與數位孿生驗證環境</td><td><a href="#goal-d">Goal D</a> / <a href="#goal-e">Goal E</a></td></tr>
 </tbody></table>
 <h3 id="c0">C0. Shared Foundation for Validation Capabilities</h3>
 <blockquote>
@@ -427,7 +427,7 @@
 </ul>
 <h3 id="c1">C1. Step 1 — OCUDU + O-RU Interoperability</h3>
 <blockquote>
-<p>Purpose：先建立多家 O-RU 與 OCUDU-based DU stack 的基礎連通與互通性驗證能力，作為 <a href="#goal-a">Goal A</a> / B 的共同 proof object。</p>
+<p>Purpose：先建立多家 O-RU 與 OCUDU-based DU stack 的基礎連通與互通性驗證能力，作為 <a href="#goal-a">Goal A</a> / <a href="#goal-b">Goal B</a> 的共同 proof object。</p>
 <p>Current status：OCUDU environment ready on Pega server；Pega connecting to RU；possible timing lock issue；LIONS 五月底入場。</p>
 <p>Output：multi-vendor O-RU interoperability test report。</p>
 </blockquote>
@@ -441,7 +441,7 @@
 <tr><td>System integration ready for test</td><td>完成 OCUDU 對應 O-RU 參數設定，確認 fronthaul / PTP / management plane baseline</td><td>Integration readiness checklist</td></tr>
 <tr><td>Start interoperability test</td><td>執行 basic connectivity、參數設定、fronthaul plane 與初步 traffic / signal validation</td><td>Test execution log</td></tr>
 <tr><td>Issue isolation / debug</td><td>若測試失敗，區分問題來自 RU setting、timing / sync、fronthaul、PHY 或 higher layer integration</td><td>Issue log / root cause note</td></tr>
-<tr><td>Test report</td><td>輸出單一 vendor O-RU interoperability test report，作為 <a href="#goal-a">Goal A</a> / B 可引用 proof object</td><td>Vendor O-RU interoperability report</td></tr>
+<tr><td>Test report</td><td>輸出單一 vendor O-RU interoperability test report，作為 <a href="#goal-a">Goal A</a> / <a href="#goal-b">Goal B</a> 可引用 proof object</td><td>Vendor O-RU interoperability report</td></tr>
 <tr><td>Vendor review / sign-off</td><td>讓廠商確認測試結果與可公開 / 可提交範圍</td><td>Reviewed report / submission package</td></tr>
 </tbody></table>
 <h4 id="c1a">C1A. LIONS O-RU Interoperability Test</h4>
@@ -524,7 +524,7 @@
 <li id="c3-4"><a href="#c3-4" class="ct-badge">C3.4</a> 定義量測指標：BLER、Throughput、Latency、compute load、power / thermal</li>
 <li id="c3-5"><a href="#c3-5" class="ct-badge">C3.5</a> 比較傳統 receiver vs. AI-native receiver KPI</li>
 <li id="c3-6"><a href="#c3-6" class="ct-badge">C3.6</a> 定義模型漂移偵測方法</li>
-<li id="c3-7"><a href="#c3-7" class="ct-badge">C3.7</a> Step 3 結果文件化，支撐 <a href="#goal-d">Goal D</a> / E 的差異化敘事</li>
+<li id="c3-7"><a href="#c3-7" class="ct-badge">C3.7</a> Step 3 結果文件化，支撐 <a href="#goal-d">Goal D</a> / <a href="#goal-e">Goal E</a> 的差異化敘事</li>
 </ul>
 <h3 id="c4">C4. Step 4 — ES rApp / AI-RAN Use Case Validation</h3>
 <blockquote>
@@ -557,7 +557,7 @@
 <h3 id="c6">C6. Standardized Output Assets</h3>
 <blockquote>
 <p>Purpose：把各 Step 的測試結果轉成可重複使用、可提交、可對外溝通的 validation assets。</p>
-<p>Output：可支撐 <a href="#goal-a">Goal A</a> / B / D / E 的共用 proof package。</p>
+<p>Output：可支撐 <a href="#goal-a">Goal A</a> / <a href="#goal-b">Goal B</a> / <a href="#goal-d">Goal D</a> / <a href="#goal-e">Goal E</a> 的共用 proof package。</p>
 </blockquote>
 <ul>
 <li id="c6-1"><a href="#c6-1" class="ct-badge">C6.1</a> 建立可重現的測試程序文件</li>
