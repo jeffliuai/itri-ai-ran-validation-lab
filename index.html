@@ -56,9 +56,12 @@
     margin-top: 28px;
     margin-bottom: 4px;
   }
+  h4 { font-size: 0.94rem; color: #0f766e; margin-top: 22px; margin-bottom: 6px; }
   ul { padding-left: 22px; margin: 4px 0 8px; }
   li { margin: 3px 0; font-size: 0.93rem; }
-  li.standalone-ref { list-style: none; margin-left: -4px; margin-top: 8px; margin-bottom: 8px; }
+  hr { border: none; border-top: 1px solid #e2e8f0; margin: 36px 0; }
+  code { background:#f1f5f9; padding: 1px 5px; border-radius:4px; font-size:0.88em; }
+
   blockquote {
     background: #f0fdf4;
     border-left: 4px solid #16a34a;
@@ -69,50 +72,41 @@
     font-size: 0.88rem;
   }
   blockquote p { margin: 2px 0; }
-  p.track-label {
-    font-weight: 700;
-    font-size: 0.9rem;
-    color: #374151;
-    background: #f1f5f9;
-    display: inline-block;
-    padding: 2px 10px;
-    border-radius: 4px;
-    margin-top: 14px;
-    margin-bottom: 2px;
-  }
-  p.flow-label {
-    font-weight: 600;
-    font-size: 0.88rem;
-    color: #6d28d9;
-    margin-top: 10px;
-    margin-bottom: 2px;
-  }
-  hr { border: none; border-top: 1px solid #e2e8f0; margin: 36px 0; }
-  code { background:#f1f5f9; padding: 1px 5px; border-radius:4px; font-size:0.88em; }
 
-  /* Executive overview */
-  .executive-panel {
-    background: white;
-    border: 1px solid #dbe3ef;
-    border-radius: 14px;
-    padding: 18px 20px;
-    margin: 18px 0 24px;
-    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
+  .warn-box {
+    background: #fff7ed;
+    border-left: 4px solid #ea580c;
+    margin: 10px 0;
+    padding: 10px 14px;
+    border-radius: 0 6px 6px 0;
+    color: #374151;
+    font-size: 0.88rem;
   }
-  .executive-panel h2 {
-    color: #1e3a8a;
-    background: none;
-    border-radius: 0;
-    padding: 0;
-    margin: 0 0 8px;
-    font-size: 1.15rem;
+  .warn-box p { margin: 2px 0; }
+  .warn-box strong { color: #c2410c; }
+
+  .info-box {
+    background: #eff6ff;
+    border-left: 4px solid #2563eb;
+    margin: 10px 0;
+    padding: 10px 14px;
+    border-radius: 0 6px 6px 0;
+    color: #334155;
+    font-size: 0.88rem;
   }
-  .bottom-line {
-    font-size: 1.02rem;
-    font-weight: 700;
-    color: #0f766e;
-    margin: 8px 0 10px;
+  .info-box p { margin: 2px 0; }
+
+  .milestone-box {
+    background: #ecfdf5;
+    border: 1px solid #6ee7b7;
+    border-radius: 8px;
+    padding: 10px 16px;
+    margin: 10px 0;
+    font-size: 0.9rem;
+    color: #064e3b;
   }
+  .milestone-box strong { color: #047857; }
+
   table {
     width: 100%;
     border-collapse: collapse;
@@ -133,38 +127,13 @@
     border: 1px solid #dbe3ef;
     vertical-align: top;
   }
-  table.strategy-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 12px 0 4px;
-    background: white;
-    font-size: 0.86rem;
-  }
-  table.strategy-table th {
-    background: #f1f5f9;
-    color: #334155;
-    text-align: left;
-    padding: 8px 10px;
-    border: 1px solid #dbe3ef;
-    font-weight: 700;
-  }
-  table.strategy-table td {
-    padding: 8px 10px;
-    border: 1px solid #dbe3ef;
-    vertical-align: top;
-  }
-  .dependency-note {
-    background: #eef6ff;
-    border-left: 4px solid #2563eb;
-    padding: 9px 12px;
-    border-radius: 0 8px 8px 0;
-    color: #334155;
-    font-size: 0.9rem;
-    margin-top: 12px;
-  }
+  .badge-done { background:#dcfce7; color:#166534; font-size:0.78rem; font-weight:700; padding:2px 8px; border-radius:10px; }
+  .badge-progress { background:#dbeafe; color:#1d4ed8; font-size:0.78rem; font-weight:700; padding:2px 8px; border-radius:10px; }
+  .badge-blocked { background:#fee2e2; color:#991b1b; font-size:0.78rem; font-weight:700; padding:2px 8px; border-radius:10px; }
+  .badge-hold { background:#fef3c7; color:#92400e; font-size:0.78rem; font-weight:700; padding:2px 8px; border-radius:10px; }
+  .badge-tbd { background:#f1f5f9; color:#475569; font-size:0.78rem; font-weight:700; padding:2px 8px; border-radius:10px; }
+  .badge-unlocked { background:#ede9fe; color:#5b21b6; font-size:0.78rem; font-weight:700; padding:2px 8px; border-radius:10px; }
 
-  /* Goal overview cards */
-  .goal-overview { margin: 20px 0 32px; }
   .goal-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -190,22 +159,10 @@
     padding: 2px 8px;
     border-radius: 6px;
     margin-bottom: 8px;
-    letter-spacing: 0.05em;
   }
-  .goal-card-name {
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: #111827;
-    line-height: 1.4;
-    margin-bottom: 6px;
-  }
-  .goal-card-phases {
-    font-size: 0.76rem;
-    color: #6b7280;
-    line-height: 1.4;
-  }
+  .goal-card-name { font-size: 0.88rem; font-weight: 600; color: #111827; line-height: 1.4; margin-bottom: 4px; }
+  .goal-card-role { font-size: 0.76rem; color: #6b7280; }
 
-  /* Common task reference badge */
   a.ct-badge {
     display: inline-flex;
     align-items: center;
@@ -222,475 +179,581 @@
   }
   a.ct-badge:hover { background: #dbeafe; }
 
-  /* Goal usage badges on common task headers */
-  .usage-badges { margin-left: 8px; }
-  .usage-badge {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 1px 6px;
-    border-radius: 8px;
-    margin-left: 3px;
-    vertical-align: middle;
-  }
-  .usage-badge-A { background:#dbeafe; color:#1d4ed8; }
-  .usage-badge-B { background:#e0f2fe; color:#0369a1; }
-  .usage-badge-C { background:#ede9fe; color:#6d28d9; }
-  .usage-badge-D { background:#ccfbf1; color:#0f766e; }
-  .usage-badge-E { background:#fef3c7; color:#b45309; }
+  .vendor-cat { font-weight: 700; font-size: 0.82rem; color: #374151; background: #f1f5f9; display: inline-block; padding: 2px 10px; border-radius: 4px; margin: 14px 0 4px; }
 
-  h4 { font-size: 0.94rem; color: #0f766e; margin-top: 22px; margin-bottom: 6px; }
+  .bottom-line { font-size: 1.02rem; font-weight: 700; color: #0f766e; margin: 8px 0 10px; }
 </style>
 </head>
 <body>
-<h1 id="itri-ai-ran-validation-lab-wbs">ITRI AI-RAN Validation Lab WBS</h1>
-<p class="doc-meta"><span><strong>Version:</strong> v0.2</span><span><strong>Last updated:</strong> 2026-05-12 20:06 CST</span></p>
-<h2 id="preface" class="overview-h2">前情提要</h2>
+
+<h1>ITRI AI-RAN Validation Lab WBS</h1>
+<p class="doc-meta">
+  <span><strong>Version:</strong> v0.5</span>
+  <span><strong>Last updated:</strong> 2026-05-18 CST</span>
+</p>
+
+<h2 class="overview-h2">前情提要</h2>
 <p>本頁整理 ITRI AI-RAN / OCUDU Validation Lab 的初步工作分解，用來對齊內部對實驗室定位、年度目標與執行優先序的共識。</p>
-<p>目前的核心判斷是：ITRI 不只是建立單一測試能力，而是要逐步形成一個能支援台灣設備商與 AI-RAN 解決方案進入國際 OCUDU / AI-RAN 驗證鏈的中立驗證場域。短期先從 OCUDU + real O-RU interoperability 做起，累積可被外部生態系接受的 proof objects；中期延伸到 L1 / PHY integration、Neural Receiver、rApp 與 Digital Twin validation。</p>
-<p>這份文件不是最終執行計畫，而是第一版目標架構與 WBS 草案。重點是先確認方向是否正確，再展開 owner、時程、資源與風險管理。</p>
-<h2 id="reading-guide" class="overview-h2">閱讀大綱</h2>
+<p>目前的核心判斷是：ITRI 不只是建立單一測試能力，而是要逐步形成一個能支援台灣通訊產業鏈廠商與 AI-RAN 解決方案進入國際 OCUDU / AI-RAN 驗證鏈的中立驗證場域（短期聚焦 RU 廠商，長期延伸至產業鏈各層次）。短期先從 OCUDU + real O-RU interoperability 做起，累積可被外部生態系接受的 proof objects；中期延伸到 L1 / PHY integration、Neural Receiver、rApp 與 Digital Twin validation。</p>
+
+<h2 class="overview-h2">閱讀大綱</h2>
 <ol>
-<li><a href="#strategic-overview"><strong>Strategic Overview</strong></a>：說明 Lab 的定位、核心價值與成功指標。</li>
-<li><a href="#goals-overview"><strong>五大目標總覽</strong></a>：把 Lab 的工作拆成五個主目標，區分正式身分、廠商成果、技術能力、差異化定位與長期認定。</li>
-<li><a href="#common-tasks"><strong>共同任務</strong></a>：整理會被多個目標共用的基礎工作，例如設備、DeepSig 合作、國際活動與對外材料。</li>
-<li><a href="#goal-a"><strong>Goal A / B / D / E</strong></a>：說明 Lab 對外生態系成果，包括 OCUDU test partner、vendor matrix、差異化定位與 endorsed lab。</li>
-<li><a href="#goal-c"><strong>Goal C</strong></a>：本文件的技術核心，定義 ITRI 需要建立的 validation capability portfolio。</li>
+  <li><a href="#strategic-overview"><strong>Strategic Overview</strong></a>：Lab 的定位、核心價值與成功指標。</li>
+  <li><a href="#goals-overview"><strong>五大目標總覽</strong></a>：五個主目標概覽。</li>
+  <li><a href="#common-tasks"><strong>共同任務</strong></a>：硬體、DeepSig 合作、國際活動、對外材料、資料庫。</li>
+  <li><a href="#goal-a"><strong>Goal A / B / D / E</strong></a>：OCUDU partner、vendor matrix、差異化定位、endorsed lab。</li>
+  <li><a href="#goal-c"><strong>Goal C</strong></a>：技術核心，validation capability portfolio。</li>
 </ol>
+
 <h2 id="strategic-overview" class="overview-h2">Strategic Overview</h2>
-<p class="bottom-line"><strong>目標：成為台灣 RU / AI-RAN 生態系進入國際驗證鏈的槓桿。</strong></p>
-<p>ITRI 的核心價值在於建立具備 <strong>OCUDU integration、real O-RU interoperability、L1 / PHY integration、Neural Receiver / AI-RAN validation</strong> 的中立驗證場域，協助台灣設備商降低進入國際生態系的門檻。</p>
+<p class="bottom-line">目標：成為台灣通訊產業鏈進入 AI-RAN / OCUDU 國際驗證鏈的槓桿。</p>
+<p>ITRI 的核心價值在於建立具備 <strong>OCUDU integration、real O-RU interoperability、L1 / PHY integration、Neural Receiver / AI-RAN validation</strong> 的中立驗證場域，協助台灣通訊產業鏈廠商降低進入國際生態系的門檻（短期聚焦 RU 廠商，長期延伸至產業鏈各層次）。</p>
 <table>
-<thead><tr><th>面向</th><th>定位</th></tr></thead>
-<tbody>
-<tr><td><strong>是什麼</strong></td><td>AI-RAN / OCUDU / Neural Receiver 的 deployment-oriented validation hub。</td></tr>
-<tr><td><strong>核心技術資產</strong></td><td><a href="#goal-c">Goal C</a> 的 validation capability portfolio：O-RU 互通性、fronthaul parameter validation、L1 CPU/GPU path、Neural Receiver、ES rApp、Digital Twin / AI-RAN validation。</td></tr>
-<tr><td><strong>成功指標</strong></td><td>台灣設備商與 AI-RAN 解決方案進入國際 vendor matrix / validation chain，並建立 ITRI 在 AI-RAN deployment validation 的差異化位置。</td></tr>
-</tbody></table>
-<blockquote>
-<p><strong>Goal C 是 Lab 的技術核心。</strong> <a href="#goal-a">Goal A</a>、<a href="#goal-b">Goal B</a>、<a href="#goal-d">Goal D</a>、<a href="#goal-e">Goal E</a> 是由 <a href="#goal-c">Goal C</a> 驗證能力支撐的 ecosystem outcomes。</p>
-</blockquote>
+  <thead><tr><th>面向</th><th>定位</th></tr></thead>
+  <tbody>
+    <tr><td><strong>是什麼</strong></td><td>AI-RAN / OCUDU / Neural Receiver 的 deployment-oriented validation hub。</td></tr>
+    <tr><td><strong>核心技術資產</strong></td><td>O-RU 互通性、fronthaul parameter validation、L1 CPU/GPU path、Neural Receiver、ES rApp、Digital Twin / AI-RAN validation。</td></tr>
+    <tr><td><strong>成功指標</strong></td><td>台灣通訊產業鏈廠商與 AI-RAN 解決方案進入國際 vendor matrix / validation chain，並建立 ITRI 在 AI-RAN deployment validation 的差異化位置。</td></tr>
+  </tbody>
+</table>
+<blockquote><p><strong>Goal C 是 Lab 的技術核心。</strong> Goal A、B、D、E 是由 Goal C 驗證能力支撐的 ecosystem outcomes。</p></blockquote>
+
 <h2 id="goals-overview" class="overview-h2">五大目標總覽</h2>
-<table>
-<thead><tr><th>Goal</th><th>Name</th><th>Role</th></tr></thead>
-<tbody>
-<tr><td><a href="#goal-a"><strong>Goal A</strong></a></td><td><a href="#goal-a">OCUDU Lab Test Partner 身分</a></td><td>Ecosystem role / formal partner identity</td></tr>
-<tr><td><a href="#goal-b"><strong>Goal B</strong></a></td><td><a href="#goal-b">台灣 RU 廠商進入 OCUDU Global Vendor Matrix</a></td><td>Vendor ecosystem outcome</td></tr>
-<tr><td><a href="#goal-c"><strong>Goal C</strong></a></td><td><a href="#goal-c">Lab Validation Capability Portfolio</a></td><td>Core technical capability</td></tr>
-<tr><td><a href="#goal-d"><strong>Goal D</strong></a></td><td><a href="#goal-d">差異化定位確立</a></td><td>Strategic positioning</td></tr>
-<tr><td><a href="#goal-e"><strong>Goal E</strong></a></td><td><a href="#goal-e">AI-RAN Alliance Endorsed Lab 認定</a></td><td>Long-term international recognition</td></tr>
-</tbody></table>
-<blockquote>
-<p><strong>範圍定位</strong>：建立 OCUDU integration + Neural Receiver testing + 台灣硬體生態系實機整合的驗證能力，目標身分為亞太 AI-RAN deployment-oriented validation hub。</p>
-<p><strong>說明</strong>：共同任務為多個目標共用的工作，執行一次即可服務多個目標。各目標章節以 <code>→ 共同任務 0.x</code> 標示引用，不重複執行。</p>
-</blockquote>
+<div class="goal-grid">
+  <a href="#goal-a" class="goal-card"><span class="goal-card-letter" style="background:#1d4ed8">Goal A</span><div class="goal-card-name">OCUDU Lab Test Partner 身分</div><div class="goal-card-role">Ecosystem role / formal partner identity</div></a>
+  <a href="#goal-b" class="goal-card"><span class="goal-card-letter" style="background:#0369a1">Goal B</span><div class="goal-card-name">台灣通訊產業鏈廠商進入 OCUDU Global Vendor Matrix</div><div class="goal-card-role">Vendor ecosystem outcome（短期 RU，長期延伸產業鏈）</div></a>
+  <a href="#goal-c" class="goal-card"><span class="goal-card-letter" style="background:#6d28d9">Goal C</span><div class="goal-card-name">Lab Validation Capability Portfolio</div><div class="goal-card-role">Core technical capability</div></a>
+  <a href="#goal-d" class="goal-card"><span class="goal-card-letter" style="background:#0f766e">Goal D</span><div class="goal-card-name">差異化定位確立</div><div class="goal-card-role">Strategic positioning</div></a>
+  <a href="#goal-e" class="goal-card"><span class="goal-card-letter" style="background:#b45309">Goal E</span><div class="goal-card-name">AI-RAN Alliance Endorsed Lab 認定</div><div class="goal-card-role">Long-term international recognition</div></a>
+</div>
+
 <hr>
+
+<!-- ==================== COMMON TASKS ==================== -->
 <h2 id="common-tasks" style="background:#374151">共同任務</h2>
+
 <h3 id="ct-0-1">0.1 硬體採購與實驗室基礎環境建置</h3>
-<ul>
-<li id="ct-0-1-1">0.1.1 GPU 節點採購（NVIDIA A100 或 L40S）</li>
-<li id="ct-0-1-2">0.1.2 高效能 CPU 伺服器採購（AMD 3D V-Cache，傳統接收機基準用）</li>
-<li id="ct-0-1-3">0.1.3 PTP Grandmaster Clock 採購（Category B fronthaul timing）</li>
-<li id="ct-0-1-4">0.1.4 UE 模擬器評估與採購（AmariSoft 或 COTS 手機）</li>
-<li id="ct-0-1-5">0.1.5 OCUDU 26.04 環境建置（CU / DU-high：L3 + L2 + MAC / Scheduler）</li>
-<li id="ct-0-1-6">0.1.6 O-RAN Fronthaul 環境建置（eCPRI / M-plane / C-plane / U-plane）</li>
-<li id="ct-0-1-7">0.1.7 PTP 同步部署與驗證</li>
-</ul>
+<div class="info-box">
+  <p><strong>硬體規格參考（2026-05-13 DeepSig 會議）：</strong>Benchmark 結果高度依賴 CPU 架構、Core 分配、AVX 支援與 GPU 加速。參考 VALOR lab：AMD 64-core server，32 cores 分配給 DU/CU，AVX2 enabled，無 AVX512，software-based acceleration。ITRI 現況：Intel-based server，規格確認中。</p>
+</div>
+<table>
+  <thead><tr><th>項目</th><th>狀態</th></tr></thead>
+  <tbody>
+    <tr><td>0.1.1 GPU 節點採購（NVIDIA A100 或 L40S）</td><td><span class="badge-tbd">待採購</span></td></tr>
+    <tr><td>0.1.2 高效能 CPU 伺服器採購（AMD 3D V-Cache）</td><td><span class="badge-tbd">待採購</span></td></tr>
+    <tr><td>0.1.3 PTP Grandmaster Clock 採購（Category B fronthaul timing）</td><td><span class="badge-tbd">待採購</span></td></tr>
+    <tr><td>0.1.4 UE 模擬器評估（AmariSoft 或 COTS 手機）</td><td><span class="badge-tbd">待確認現有設備</span></td></tr>
+    <tr><td>0.1.5 OCUDU 26.04 環境建置（CU / DU-high：L3 + L2 + MAC / Scheduler）</td><td><span class="badge-done">✅ Done</span></td></tr>
+    <tr><td>0.1.6 O-RAN Fronthaul 環境建置（eCPRI / M-plane / C-plane / U-plane）</td><td><span class="badge-progress">In Progress</span></td></tr>
+    <tr><td>0.1.7 PTP 同步部署與驗證</td><td><span class="badge-done">✅ Done（timing lock fixed）</span></td></tr>
+  </tbody>
+</table>
+
 <h3 id="ct-0-2">0.2 DeepSig 合作洽談</h3>
-<ul>
-<li id="ct-0-2-1">0.2.1 洽談合作形式（研究授權 / 技術合作）</li>
-<li id="ct-0-2-2">0.2.2 取得 OmniPHY setup guide、minimum requirements、debug support window</li>
-<li id="ct-0-2-3">0.2.3 確認 OmniPHY 與 OCUDU/SRS 整合介面可行性</li>
-<li id="ct-0-2-4">0.2.4 借道 DeepSig 引薦接觸 OCUDU/Linux Foundation</li>
-</ul>
+<table>
+  <thead><tr><th>項目</th><th>狀態</th><th>Owner</th><th>Milestone</th></tr></thead>
+  <tbody>
+    <tr><td>0.2.1 洽談合作形式（研究授權 / 技術合作）</td><td><span class="badge-done">✅ Done（研究授權確認）</span></td><td>—</td><td>—</td></tr>
+    <tr><td>0.2.2 取得 OmniPHY setup guide、minimum requirements、hardware requirements</td><td><span class="badge-progress">In Progress</span><br><small>DeepSig 提供 evaluation license 流程 + CUDA branch；ITRI 確認 server 規格</small></td><td>Jeff</td><td><strong>簽署前完成</strong></td></tr>
+    <tr><td>0.2.3 確認 OmniPHY 與 OCUDU/SRS 整合介面可行性</td><td><span class="badge-tbd">TBD</span></td><td>—</td><td>TBD</td></tr>
+    <tr><td>0.2.4 借道 DeepSig 引薦接觸 OCUDU/Linux Foundation</td><td><span class="badge-progress">In Progress</span></td><td>DeepSig 主導 / Jeff 跟進</td><td>TBD</td></tr>
+  </tbody>
+</table>
+<div class="info-box">
+  <p><strong>2026-05-13 Action Item 1：</strong>DeepSig 提供 evaluation license 流程、CUDA branch access、neural receiver evaluation support。ITRI 需準備 testing environment + 評估 resource allocation。</p>
+</div>
+<div class="warn-box">
+  <p><strong>⚠️ License 關鍵約束（2026-04-22 SLA，簽署前必讀）：</strong></p>
+  <p>• <strong>60 天期限：</strong>從 Effective Date 起算，環境必須在簽署前準備好，否則浪費評估窗口</p>
+  <p>• <strong>Max 1 DU + 2 RU：</strong>Evaluation license 限制同時運行最多 2 台 RU，超出需另行談 commercial license</p>
+  <p>• <strong>Performance Disclosure：</strong>任何涉及 OmniPHY 的測試結果對外公開前，必須取得 DeepSig 書面同意（含 5G Summit Oct 2026）</p>
+  <p>• <strong>ITAR/EAR 合規：</strong>簽署前需確認 ITRI 的出口管制合規程序</p>
+</div>
+<div class="warn-box">
+  <p><strong>⚠️ 0.2.2 Immediate Actions（簽署前，Owner：偉銘）：</strong></p>
+  <p>• 確認 ITRI 現有 server 規格：CPU model、core count、AVX512/AVX2 支援、RAM</p>
+  <p>• 確認實驗室現有 UE 設備（COTS UE 或 UESim）</p>
+</div>
+
 <h3 id="ct-0-3">0.3 國際活動參與規劃</h3>
+<table>
+  <thead><tr><th>活動</th><th>時間</th><th>形式</th><th>備註</th></tr></thead>
+  <tbody>
+    <tr><td>DeepSig 台灣訪問</td><td>2026-06-15 週</td><td>F2F</td><td>帶 Metanoia + LIONS 廠商；ITRI 協助安排</td></tr>
+    <tr><td>3GPP RAN #112 Singapore</td><td>TBD</td><td>F2F</td><td>ITRI + DeepSig 跟進討論機會</td></tr>
+    <tr><td>5G Summit</td><td>~2026-10</td><td>展示</td><td>C4 rApp 結果分享目標節點</td></tr>
+  </tbody>
+</table>
 <ul>
-<li id="ct-0-3-1">0.3.1 確認目標活動清單（MWC、AI-RAN Summit、O-RAN PlugFest、IEEE）</li>
-<li id="ct-0-3-2">0.3.2 規劃各活動參與方式（聆聽 / 投稿 / 展示 / 演講）</li>
-<li id="ct-0-3-3">0.3.3 與 OCUDU / AI-RAN Alliance 社群活動行程對齊</li>
+  <li>0.3.1 確認其他目標活動清單（MWC、AI-RAN Summit、O-RAN PlugFest、IEEE）</li>
+  <li>0.3.2 規劃各活動參與方式（聆聽 / 投稿 / 展示 / 演講）</li>
+  <li>0.3.3 與 OCUDU / AI-RAN Alliance 社群活動行程對齊</li>
 </ul>
+
 <h3 id="ct-0-4">0.4 對外溝通材料基礎建立</h3>
 <ul>
-<li id="ct-0-4-1">0.4.1 實驗室能力說明文件（lab capabilities overview）</li>
-<li id="ct-0-4-2">0.4.2 台灣硬體生態系整合敘事（LIONS / 光寶 / 義傳 / G REIGNS 組合故事）</li>
-<li id="ct-0-4-3">0.4.3 差異化定位核心訊息文件化（ITRI vs. SUTD 差異化）</li>
+  <li>0.4.1 實驗室能力說明文件（lab capabilities overview）</li>
+  <li>0.4.2 台灣硬體生態系整合敘事（LIONS / 光寶 / 義傳 / G REIGNS / Metanoia 組合故事，涵蓋生態系整合角度，不限於硬體）</li>
+  <li>0.4.3 差異化定位核心訊息文件化（雙框架：SUTD 被動防禦 + TIP Community Lab vs. OTIC 主動定框）</li>
+  <li>0.4.4 產發署亮點故事包裝：從生態系整合到國際技術合作 / 商機開拓的完整敘事（→ 國合互動對接）</li>
+  <li>0.4.5 國合互動規劃：定期同步實驗室進展，對接國際合作機會</li>
 </ul>
+
+<h3 id="ct-0-5">0.5 實驗室資料庫建立</h3>
+<blockquote>
+  <p><strong>Owner：</strong>Jeff &nbsp;|&nbsp; <strong>Milestone：</strong>TBD</p>
+  <p>內容：測試結果記錄、設備清單、測試配置與參數。內部管理用，未來視需要轉接 C6。</p>
+</blockquote>
+
 <hr>
+
+<!-- ==================== GOAL A ==================== -->
 <h2 id="goal-a" style="background:#1d4ed8">Goal A：OCUDU Lab Test Partner 身分</h2>
+<div class="milestone-box">
+  <strong>關鍵 Milestone：2026-06 底</strong> — 產出初步 performance baseline validation 結果，分享給 OCUDU community 作為第三方實驗室測試成果。
+</div>
 <blockquote>
-<p><strong>現況</strong>：ITRI 已是 OCUDU 會員，已有雙周會、參與社群活動。明天雙周會將討論成為 OCUDU 實驗室的條件。接觸管道已建立，核心未知是測試結果的類型與呈現方式。</p>
+  <p><strong>現況：</strong>ITRI 已是 OCUDU 會員，持續參與雙周會與社群活動。2026-05-13 與 DeepSig 同步確認：ITRI 定位為 OCUDU partner lab，提供台灣廠商第三方驗證與 benchmarking visibility。</p>
+  <p><strong>⚠️ Scope 邊界：</strong>End of June 分享的內容為 <strong>OCUDU interop baseline（C1 + C2A，不含 OmniPHY）</strong>，不受 DeepSig Performance Disclosure 條款約束。涉及 OmniPHY / DeepSig 軟體的結果須另行取得書面同意。</p>
 </blockquote>
-<h3 id="a1-釐清實驗室條件">A1. 釐清實驗室條件</h3>
+
+<h3>A1. 釐清實驗室條件</h3>
 <blockquote>
-<p>狀態：進行中，明天雙周會為關鍵輸入</p>
-<p>輸出：明確的條件清單</p>
-</blockquote>
-<ul>
-<li id="a1-1">A1.1 確認成為 OCUDU 實驗室所需的測試結果類型</li>
-<li id="a1-2">A1.2 確認測試結果的呈現形式與提交方式</li>
-<li id="a1-3">A1.3 確認是否有其他條件（CI/CD 貢獻、文件格式、審核流程）</li>
-<li id="a1-4">A1.4 確認 OCUDU 2028 roadmap 對 lab 角色定義的影響</li>
-<li id="a1-5">A1.5 確認時程與下一步行動（基於明天會議結論）</li>
-</ul>
-<h3 id="a2-定義貢獻方式">A2. 定義貢獻方式</h3>
-<blockquote>
-<p>前置條件：A1 完成</p>
-<p>輸出：ITRI 貢獻計畫文件</p>
+  <p>狀態：進行中，等候會議記錄補充</p>
+  <p><strong>2026-05-13 補充：</strong>DeepSig 確認 ITRI 定位為 OCUDU partner lab；benchmarking 範圍定義由 Action Item 2 驅動（DeepSig 分享 ORAN TIFG benchmarking items + KPI candidates + test report format）</p>
 </blockquote>
 <ul>
-<li id="a2-1">A2.1 對應 A1 條件，確認 ITRI 可提供的測試項目範圍</li>
-<li id="a2-2">A2.2 確認測試結果與 <a href="#goal-c">Goal C</a> 產出的對接方式</li>
-<li id="a2-3">A2.3 準備 value proposition 文件（<a href="#ct-0-4" class="ct-badge">→ 共同任務 0.4</a>）</li>
+  <li>A1.1 確認成為 OCUDU 實驗室所需的測試結果類型</li>
+  <li>A1.2 確認測試結果的呈現形式與提交方式</li>
+  <li>A1.3 確認是否有其他條件（CI/CD 貢獻、文件格式、審核流程）</li>
+  <li>A1.4 確認 OCUDU 2028 roadmap 對 lab 角色定義的影響</li>
+  <li>A1.5 確認時程與下一步行動</li>
 </ul>
-<h3 id="a3-技術準備與成果產出">A3. 技術準備與成果產出</h3>
-<blockquote>
-<p>前置條件：A2 完成，<a href="#goal-c">Goal C</a> 對應測試結果產出中</p>
-<p>輸出：符合 OCUDU 要求格式的測試成果</p>
-</blockquote>
+
+<h3>A2. 定義貢獻方式</h3>
+<blockquote><p>前置條件：A1 完成 &nbsp;|&nbsp; 輸出：ITRI 貢獻計畫文件</p></blockquote>
 <ul>
-<li id="a3-1">A3.1 依 A1.2 要求，整理並格式化測試結果（來自 <a href="#goal-c">Goal C</a> / <a href="#c6" class="ct-badge">C6</a>）</li>
-<li id="a3-2">A3.2 確認 CI/CD/CT 整合能力（若 A1.3 有此要求）</li>
-<li id="a3-3">A3.3 產出第一批可提交給 OCUDU 的 test asset</li>
+  <li>A2.1 對應 A1 條件，確認 ITRI 可提供的測試項目範圍</li>
+  <li>A2.2 確認測試結果與 Goal C 產出的對接方式</li>
+  <li>A2.3 準備 value proposition 文件 <a href="#ct-0-4" class="ct-badge">→ 0.4</a></li>
 </ul>
-<h3 id="a4-正式關係建立">A4. 正式關係建立</h3>
-<blockquote>
-<p>前置條件：A3 完成，OCUDU 確認接受</p>
-</blockquote>
+
+<h3>A3. 技術準備與成果產出</h3>
+<blockquote><p>前置條件：A2 完成，Goal C 對應測試結果產出中 &nbsp;|&nbsp; 輸出：符合 OCUDU 要求格式的測試成果</p></blockquote>
 <ul>
-<li id="a4-1">A4.1 與 OCUDU 談定合作形式（MOU / 社群貢獻者協議 / 其他）</li>
-<li id="a4-2">A4.2 定義雙方持續合作範疇與溝通節奏</li>
+  <li>A3.1 整理並格式化測試結果（來自 Goal C / C6）</li>
+  <li>A3.2 確認 CI/CD/CT 整合能力（若 A1.3 有此要求）</li>
+  <li>A3.3 產出第一批可提交給 OCUDU 的 test asset</li>
 </ul>
-<h3 id="a5-持續維持">A5. 持續維持</h3>
+
+<h3>A4. 正式關係建立</h3>
+<blockquote><p>前置條件：A3 完成，OCUDU 確認接受</p></blockquote>
 <ul>
-<li id="a5-1">A5.1 定期提交測試成果更新</li>
-<li id="a5-2">A5.2 持續參與 OCUDU 社群活動（已在進行）</li>
-<li id="a5-3">A5.3 追蹤 OCUDU 2028 roadmap 對 lab 角色定義的影響</li>
+  <li>A4.1 與 OCUDU 談定合作形式（MOU / 社群貢獻者協議 / 其他）</li>
+  <li>A4.2 定義雙方持續合作範疇與溝通節奏</li>
 </ul>
+
+<h3>A5. 持續維持</h3>
+<ul>
+  <li>A5.1 定期提交測試成果更新</li>
+  <li>A5.2 持續參與 OCUDU 社群活動（已在進行）</li>
+  <li>A5.3 追蹤 OCUDU 2028 roadmap 對 lab 角色定義的影響</li>
+</ul>
+
 <hr>
-<h2 id="goal-b" style="background:#0369a1">Goal B：台灣 RU 廠商進入 OCUDU Global Vendor Matrix</h2>
-<h3 id="b1-釐清遊戲規則">B1. 釐清遊戲規則</h3>
-<blockquote>
-<p>狀態：尚未確認，需與 OCUDU 釐清（與 A1 同步進行）</p>
-<p>輸出：vendor matrix 進入條件清單</p>
-</blockquote>
+
+<!-- ==================== GOAL B ==================== -->
+<h2 id="goal-b" style="background:#0369a1">Goal B：台灣通訊產業鏈廠商進入 OCUDU Global Vendor Matrix</h2>
+
+<h3>B1. 釐清遊戲規則</h3>
+<blockquote><p>狀態：尚未確認，需與 OCUDU 釐清（與 A1 同步進行） &nbsp;|&nbsp; 輸出：vendor matrix 進入條件清單</p></blockquote>
 <ul>
-<li id="b1-1">B1.1 確認 vendor matrix 進入所需的測試項目與結果類型</li>
-<li id="b1-2">B1.2 確認測試結果呈現格式與提交方式</li>
-<li id="b1-3">B1.3 確認審核流程與時程</li>
-<li id="b1-4">B1.4 確認 ITRI 測試報告作為第三方佐證的認可程度</li>
+  <li>B1.1 確認 vendor matrix 進入所需的測試項目與結果類型</li>
+  <li>B1.2 確認測試結果呈現格式與提交方式</li>
+  <li>B1.3 確認審核流程與時程</li>
+  <li>B1.4 確認 ITRI 測試報告作為第三方佐證的認可程度</li>
 </ul>
-<h3 id="b2-廠商優先序確認">B2. 廠商優先序確認</h3>
-<blockquote>
-<p>狀態：依設備到位程度、合作意願、對 <a href="#goal-a">Goal A</a> / <a href="#goal-b">Goal B</a> 的 strategic leverage 分類。實際測試流程放在 <a href="#goal-c">Goal C</a> / <a href="#c1" class="ct-badge">C1</a>。</p>
-</blockquote>
-<p class="track-label"><em>Category A：Immediate test candidates</em></p>
+
+<h3>B2. 廠商優先序確認</h3>
+<blockquote><p>實際測試流程放在 Goal C / C1。</p></blockquote>
+
+<p class="vendor-cat">Category A — Immediate test candidates</p>
 <ul>
-<li id="b2-1">B2.1 Pegatron：設備已到位；作為 <a href="#c1" class="ct-badge">C1</a> 第一個 O-RU test case</li>
-<li id="b2-2">B2.2 LIONS：五月底入場；作為 <a href="#c1" class="ct-badge">C1</a> 第二個 O-RU test case</li>
+  <li>B2.1 <strong>Pegatron</strong>：設備已到位；C1B 進行中，Milestone 5/20</li>
+  <li>B2.2 <strong>LIONS</strong>：C1A，demo unit 先行方案確認中（Jeff + 偉銘）</li>
 </ul>
-<p class="track-label"><em>Category B：Potential next wave</em></p>
+
+<p class="vendor-cat">Category B — Potential next wave</p>
 <ul>
-<li id="b2-3">B2.3 義傳：待確認技術準備程度、設備出借時程與合作意願</li>
-<li id="b2-4">B2.4 LITEON：待完成初步接觸，確認意願與設備出借時程</li>
+  <li>B2.3 <strong>Metanoia</strong>：主動加入 OCUDU（非客戶驅動），DeepSig 視為獨特案例；DeepSig 台灣訪問（6/15 週）將接觸</li>
+  <li>B2.4 義傳：待確認技術準備程度、設備出借時程與合作意願</li>
+  <li>B2.5 LITEON：待完成初步接觸，確認意願與設備出借時程</li>
 </ul>
-<p class="track-label"><em>Category C：Watch list / optional</em></p>
+
+<p class="vendor-cat">Category C — Watch list / optional</p>
 <ul>
-<li id="b2-5">B2.5 WNC：先評估合作可行性，確認是否正式納入 <a href="#c1" class="ct-badge">C1</a> backlog</li>
-<li id="b2-6">B2.6 QCT：先列入觀察名單，待確認合作切入點與設備 / 場景可行性</li>
-<li id="b2-7">B2.7 Synergy Design Technology Limited：先列入觀察名單，待確認合作切入點與設備 / 場景可行性</li>
-<li id="b2-8">B2.8 G REIGNS：先列入觀察名單，待確認合作切入點與設備 / 場景可行性</li>
+  <li>B2.6 WNC：先評估合作可行性</li>
+  <li>B2.7 QCT：待確認合作切入點與設備 / 場景可行性</li>
+  <li>B2.8 Synergy Design Technology Limited：待確認合作切入點</li>
+  <li>B2.9 G REIGNS：美國國防客戶需求驅動（替換 Radisys / Capgemini stack）；待確認合作切入點</li>
 </ul>
-<h3 id="b3-申請材料準備與提交">B3. 申請材料準備與提交</h3>
-<blockquote>
-<p>前置條件：B1 完成（確認 vendor matrix 規則）+ <a href="#goal-c">Goal C</a> / <a href="#c1" class="ct-badge">C1</a> 產出對應廠商測試報告</p>
-<p>各廠商獨立提交</p>
-</blockquote>
+
+<h3>B3. 申請材料準備與提交</h3>
+<blockquote><p>前置條件：B1 完成 + Goal C / C1 產出對應廠商測試報告 &nbsp;|&nbsp; 各廠商獨立提交</p></blockquote>
 <ul>
-<li id="b3-1">B3.1 根據 B1 結論定義 ITRI 可扮演的支援角色</li>
-<li id="b3-2">B3.2 對接 <a href="#goal-c">Goal C</a> / <a href="#c1" class="ct-badge">C1</a> 測試結果，整理可用佐證</li>
-<li id="b3-3">B3.3 協助廠商準備提交或補件材料</li>
-<li id="b3-4">B3.4 跟進各廠商提交狀態</li>
+  <li>B3.1 根據 B1 結論定義 ITRI 可扮演的支援角色</li>
+  <li>B3.2 對接 Goal C / C1 測試結果，整理可用佐證</li>
+  <li>B3.3 協助廠商準備提交或補件材料</li>
+  <li>B3.4 跟進各廠商提交狀態</li>
 </ul>
-<h3 id="b4-持續追蹤">B4. 持續追蹤</h3>
+
+<h3>B4. 持續追蹤</h3>
 <ul>
-<li id="b4-1">B4.1 追蹤 OCUDU vendor matrix 審核進度</li>
-<li id="b4-2">B4.2 回應補件或補測要求</li>
-<li id="b4-3">B4.3 記錄廠商進入 vendor matrix 的結果</li>
+  <li>B4.1 追蹤 OCUDU vendor matrix 審核進度</li>
+  <li>B4.2 回應補件或補測要求</li>
+  <li>B4.3 記錄廠商進入 vendor matrix 的結果</li>
 </ul>
+
 <hr>
+
+<!-- ==================== GOAL C ==================== -->
 <h2 id="goal-c" style="background:#6d28d9">Goal C：Lab Validation Capability Portfolio</h2>
 <blockquote>
-<p><strong>定位</strong>：<a href="#goal-c">Goal C</a> 是 Lab 的技術核心，集中管理所有需要建立的驗證能力。<a href="#goal-a">Goal A</a> / <a href="#goal-b">Goal B</a> / <a href="#goal-d">Goal D</a> / <a href="#goal-e">Goal E</a> 均依賴 <a href="#goal-c">Goal C</a> 的測試成果作為 proof object。</p>
-<p><strong>路線</strong>：從 OCUDU + O-RU 互通性開始，逐步延伸到 L1 / PHY、Neural Receiver、ES rApp 與 Digital Twin / AI-RAN validation。</p>
+  <p><strong>定位：</strong>Goal C 是 Lab 的技術核心，集中管理所有需要建立的驗證能力。Goal A / B / D / E 均依賴 Goal C 的測試成果作為 proof object。</p>
+  <p><strong>路線：</strong>OCUDU + O-RU 互通性 → L1 / PHY → Neural Receiver → ES rApp → Digital Twin / AI-RAN validation。</p>
+</blockquote>
+
+<table>
+  <thead><tr><th>Step</th><th>Validation Capability</th><th>Test Focus</th><th>狀態</th><th>Milestone</th><th>Supports</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Step 1</strong></td><td>OCUDU + O-RU Interoperability</td><td>fronthaul 連通、互通性、參數設定</td><td><span class="badge-progress">In Progress</span></td><td>Pega 5/20；LIONS TBD</td><td>Goal A / B</td></tr>
+    <tr><td><strong>Step 2A</strong></td><td>CPU PHY Path</td><td>OCUDU + srsRAN L1 + DeepSig OmniPHY baseline</td><td><span class="badge-unlocked">解鎖</span></td><td>2026-06 底</td><td>Goal C / D</td></tr>
+    <tr><td><strong>Step 2B</strong></td><td>GPU PHY Path</td><td>OCUDU + NVIDIA Aerial cuPHY baseline</td><td><span class="badge-tbd">TBD</span></td><td>TBD</td><td>Goal C / D</td></tr>
+    <tr><td><strong>Step 3</strong></td><td>Neural Receiver Validation</td><td>傳統接收機 vs. AI-native receiver KPI comparison</td><td><span class="badge-hold">Hold（待 C2A/B）</span></td><td>TBD</td><td>Goal D / E</td></tr>
+    <tr><td><strong>Step 4</strong></td><td>ES rApp / AI-RAN Use Case</td><td>PM data → rApp decision → O1 / NETCONF control loop</td><td><span class="badge-progress">In Progress</span></td><td><strong>2026-10 / 5G Summit</strong></td><td>Goal D / E</td></tr>
+    <tr><td><strong>Step 5</strong></td><td>Digital Twin / AI-RAN Validation Env</td><td>多 RU 模擬，真實測試延伸到模擬環境</td><td><span class="badge-progress">In Progress（C5.0）</span></td><td>TBD</td><td>Goal D / E</td></tr>
+  </tbody>
+</table>
+
+<h3>C0. Shared Foundation</h3>
+<ul>
+  <li>C0.1 OCUDU 26.04 環境建置與設定驗證 <a href="#ct-0-1" class="ct-badge">→ 0.1.5</a> — <span class="badge-done">Done</span></li>
+  <li>C0.2 O-RAN Fronthaul 環境建置（eCPRI / M-plane / C-plane / U-plane）</li>
+  <li>C0.3 PTP Grandmaster Clock 與 IEEE 1588 timing baseline <a href="#ct-0-1" class="ct-badge">→ 0.1.7</a> — <span class="badge-done">Done</span></li>
+  <li>C0.4 CPU / GPU server baseline environment 準備 <a href="#ct-0-1" class="ct-badge">→ 0.1.1 / 0.1.2</a></li>
+  <li>C0.5 DeepSig OmniPHY 合作條件與整合介面釐清 <a href="#ct-0-2" class="ct-badge">→ 0.2</a></li>
+  <li>C0.6 建立共用測試方法論：指標、報告格式、問題定位分類（待資料庫建立後同步）</li>
+  <li>C0.7 建立 ITRI 自有基準數據策略，避免依賴供應商宣稱數字</li>
+</ul>
+
+<h3>C1. Step 1 — OCUDU + O-RU Interoperability</h3>
+<blockquote>
+  <p>Output：multi-vendor O-RU interoperability test report（Goal A / B proof object）</p>
+</blockquote>
+
+<h4>C1.0 Standard RU Vendor Test Procedure</h4>
+<table>
+  <thead><tr><th>Stage</th><th>Purpose</th><th>Output</th></tr></thead>
+  <tbody>
+    <tr><td>Vendor engagement confirmed</td><td>確認廠商合作意願、窗口、設備方式</td><td>Contact window / cooperation scope</td></tr>
+    <tr><td>Test plan confirmation</td><td>確認測試範圍、成功標準、報告格式</td><td>Vendor-specific test plan</td></tr>
+    <tr><td>Equipment ready in lab</td><td>O-RU、cabling、timing、network 均到位</td><td>Equipment readiness checklist</td></tr>
+    <tr><td>System integration ready</td><td>OCUDU 對應 O-RU 參數設定，fronthaul baseline</td><td>Integration readiness checklist</td></tr>
+    <tr><td>Start interoperability test</td><td>basic connectivity、fronthaul plane、traffic validation</td><td>Test execution log</td></tr>
+    <tr><td>Issue isolation / debug</td><td>區分問題來源：RU setting / timing / fronthaul / PHY</td><td>Issue log / root cause note</td></tr>
+    <tr><td>Test report</td><td>輸出單一 vendor O-RU interop report</td><td>Vendor O-RU interoperability report</td></tr>
+    <tr><td>Vendor review / sign-off</td><td>廠商確認測試結果與可公開範圍</td><td>Reviewed report / submission package</td></tr>
+  </tbody>
+</table>
+
+<h4>C1A. LIONS O-RU Interoperability Test</h4>
+<blockquote>
+  <p><strong>Owner：</strong>Jeff + 偉銘 &nbsp;|&nbsp; <strong>Milestone：</strong>TBD（待 LIONS 確認 demo unit 可行性）</p>
+  <p><strong>策略：</strong>LIONS 希望 ITRI 採購兩台 RU（採購流程進行中）。設備與採購流程分離——先向 LIONS 確認是否能提供 demo unit 入場，讓測試不被採購卡住。</p>
+  <p><strong>Immediate Action：</strong>向 LIONS 確認 demo unit 可行性 — Owner: Jeff + 偉銘</p>
 </blockquote>
 <table>
-<thead><tr><th>Step</th><th>Validation Capability</th><th>Test Focus</th><th>Supports</th></tr></thead>
-<tbody>
-<tr><td><strong>Step 1</strong></td><td>OCUDU + O-RU Interoperability</td><td>不同 O-RU 的 fronthaul 連通、互通性、參數設定與問題定位</td><td><a href="#goal-a">Goal A</a> / <a href="#goal-b">Goal B</a></td></tr>
-<tr><td><strong>Step 2A</strong></td><td>CPU PHY Path</td><td>OCUDU + srsRAN L1 + DeepSig OmniPHY，建立 open-source CPU baseline</td><td><a href="#goal-c">Goal C</a> / <a href="#goal-d">Goal D</a></td></tr>
-<tr><td><strong>Step 2B</strong></td><td>GPU PHY Path</td><td>OCUDU + NVIDIA Aerial cuPHY + optional OmniPHY，建立 GPU-accelerated baseline</td><td><a href="#goal-c">Goal C</a> / <a href="#goal-d">Goal D</a></td></tr>
-<tr><td><strong>Step 3</strong></td><td>Neural Receiver Validation</td><td>傳統接收機 vs. AI-native receiver KPI comparison</td><td><a href="#goal-d">Goal D</a> / <a href="#goal-e">Goal E</a></td></tr>
-<tr><td><strong>Step 4</strong></td><td>ES rApp / AI-RAN Use Case Validation</td><td>PM data ingestion → rApp decision logic → O1 / NETCONF control loop</td><td><a href="#goal-d">Goal D</a> / <a href="#goal-e">Goal E</a></td></tr>
-<tr><td><strong>Step 5</strong></td><td>Digital Twin / AI-RAN Validation Environment</td><td>將真實測試結果延伸到模擬與數位孿生驗證環境</td><td><a href="#goal-d">Goal D</a> / <a href="#goal-e">Goal E</a></td></tr>
-</tbody></table>
-<h3 id="c0">C0. Shared Foundation for Validation Capabilities</h3>
+  <thead><tr><th>Stage</th><th>Status</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Vendor engagement confirmed</td><td><span class="badge-done">Done</span></td><td>Cooperation intent confirmed</td></tr>
+    <tr><td>Test plan confirmation</td><td><span class="badge-tbd">Not started</span></td><td>Need to confirm test scope and success criteria</td></tr>
+    <tr><td>Equipment ready in lab</td><td><span class="badge-blocked">Blocked</span></td><td>LIONS 要求採購 2 台 RU；評估 demo unit 先行方案</td></tr>
+    <tr><td>System integration ready</td><td><span class="badge-tbd">Not started</span></td><td>Pending equipment arrival</td></tr>
+    <tr><td>Start interoperability test</td><td><span class="badge-tbd">Not started</span></td><td>Pending integration</td></tr>
+    <tr><td>Issue isolation / debug</td><td><span class="badge-tbd">Not started</span></td><td>—</td></tr>
+    <tr><td>Test report</td><td><span class="badge-tbd">Not started</span></td><td>Pending test completion</td></tr>
+    <tr><td>Vendor review / sign-off</td><td><span class="badge-tbd">Not started</span></td><td>Pending report</td></tr>
+  </tbody>
+</table>
+
+<h4>C1B. Pega O-RU Interoperability Test</h4>
 <blockquote>
-<p>Purpose：建立所有 validation steps 共用的基礎環境、合作條件與測試方法論，避免每個測試各自重建一套 infrastructure。</p>
-<p>Output：可支撐 Step 1–5 的 lab baseline。</p>
-</blockquote>
-<ul>
-<li id="c0-1"><a href="#c0-1" class="ct-badge">C0.1</a> OCUDU 26.04 環境建置與設定驗證（<a href="#ct-0-1-5" class="ct-badge">→ 共同任務 0.1.5</a>）</li>
-<li id="c0-2"><a href="#c0-2" class="ct-badge">C0.2</a> O-RAN Fronthaul 環境建置（eCPRI / M-plane / C-plane / U-plane）</li>
-<li id="c0-3"><a href="#c0-3" class="ct-badge">C0.3</a> PTP Grandmaster Clock 與 IEEE 1588 timing baseline（<a href="#ct-0-1-7" class="ct-badge">→ 共同任務 0.1.7</a>）</li>
-<li id="c0-4"><a href="#c0-4" class="ct-badge">C0.4</a> CPU / GPU server baseline environment 準備（<a href="#ct-0-1-1" class="ct-badge">→ 共同任務 0.1.1</a> / 0.1.2）</li>
-<li id="c0-5"><a href="#c0-5" class="ct-badge">C0.5</a> DeepSig OmniPHY 合作條件與整合介面釐清（<a href="#ct-0-2" class="ct-badge">→ 共同任務 0.2</a>）</li>
-<li id="c0-6"><a href="#c0-6" class="ct-badge">C0.6</a> 建立共用測試方法論：指標、報告格式、問題定位分類、可重現程序</li>
-<li id="c0-7"><a href="#c0-7" class="ct-badge">C0.7</a> 建立 ITRI 自有基準數據策略，避免依賴供應商宣稱數字</li>
-</ul>
-<h3 id="c1">C1. Step 1 — OCUDU + O-RU Interoperability</h3>
-<blockquote>
-<p>Purpose：先建立多家 O-RU 與 OCUDU-based DU stack 的基礎連通與互通性驗證能力，作為 <a href="#goal-a">Goal A</a> / <a href="#goal-b">Goal B</a> 的共同 proof object。</p>
-<p>Current status：OCUDU environment ready on Pega server；Pega connecting to RU；possible timing lock issue；LIONS 五月底入場。</p>
-<p>Output：multi-vendor O-RU interoperability test report。</p>
-</blockquote>
-<h4 id="c1-0">C1.0 Standard RU Vendor Test Procedure</h4>
-<table>
-<thead><tr><th>Stage</th><th>Purpose</th><th>Output</th></tr></thead>
-<tbody>
-<tr><td>Vendor engagement confirmed</td><td>確認廠商合作意願、窗口、設備出借 / 到場方式</td><td>Contact window / cooperation scope</td></tr>
-<tr><td>Test plan confirmation</td><td>確認測試範圍、成功標準、測試參數、報告格式</td><td>Vendor-specific test plan</td></tr>
-<tr><td>Equipment ready in lab</td><td>確認 O-RU、cabling、timing source、network path、power 與必要 access 均到位</td><td>Equipment readiness checklist</td></tr>
-<tr><td>System integration ready for test</td><td>完成 OCUDU 對應 O-RU 參數設定，確認 fronthaul / PTP / management plane baseline</td><td>Integration readiness checklist</td></tr>
-<tr><td>Start interoperability test</td><td>執行 basic connectivity、參數設定、fronthaul plane 與初步 traffic / signal validation</td><td>Test execution log</td></tr>
-<tr><td>Issue isolation / debug</td><td>若測試失敗，區分問題來自 RU setting、timing / sync、fronthaul、PHY 或 higher layer integration</td><td>Issue log / root cause note</td></tr>
-<tr><td>Test report</td><td>輸出單一 vendor O-RU interoperability test report，作為 <a href="#goal-a">Goal A</a> / <a href="#goal-b">Goal B</a> 可引用 proof object</td><td>Vendor O-RU interoperability report</td></tr>
-<tr><td>Vendor review / sign-off</td><td>讓廠商確認測試結果與可公開 / 可提交範圍</td><td>Reviewed report / submission package</td></tr>
-</tbody></table>
-<h4 id="c1a">C1A. LIONS O-RU Interoperability Test</h4>
-<blockquote>
-<p>Current status：五月底入場(正在溝通是否有機會提早)；入場後依 <a href="#c1-0" class="ct-badge">C1.0</a> 標準流程啟動測試。</p>
+  <p><strong>Owner：</strong>偉銘 &nbsp;|&nbsp; <strong>Milestone：5/20 測試結果</strong></p>
+  <p>Timing lock issue fixed；proceeding to interoperability test。</p>
 </blockquote>
 <table>
-<thead><tr><th>Stage</th><th>Status</th><th>Notes</th></tr></thead>
-<tbody>
-<tr><td>Vendor engagement confirmed</td><td>Done</td><td>Cooperation intent confirmed</td></tr>
-<tr><td>Test plan confirmation</td><td>Not started</td><td>Need to confirm test scope and success criteria</td></tr>
-<tr><td>Equipment ready in lab</td><td>Planned</td><td>Expected by end of May</td></tr>
-<tr><td>System integration ready for test</td><td>Not started</td><td>Pending equipment arrival</td></tr>
-<tr><td>Start interoperability test</td><td>Not started</td><td>Pending integration</td></tr>
-<tr><td>Issue isolation / debug</td><td>Not started</td><td>N/A</td></tr>
-<tr><td>Test report</td><td>Not started</td><td>Pending test completion</td></tr>
-<tr><td>Vendor review / sign-off</td><td>Not started</td><td>Pending report</td></tr>
-</tbody></table>
-<h4 id="c1b">C1B. Pega O-RU Interoperability Test</h4>
+  <thead><tr><th>Stage</th><th>Status</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Vendor engagement confirmed</td><td><span class="badge-done">Done</span></td><td>設備已到位</td></tr>
+    <tr><td>Test plan confirmation</td><td><span class="badge-progress">Ongoing</span></td><td>需確認測試範圍與成功標準</td></tr>
+    <tr><td>Equipment ready in lab</td><td><span class="badge-done">Done</span></td><td>Equipment ready on Pega server</td></tr>
+    <tr><td>System integration ready</td><td><span class="badge-done">Done</span></td><td>Timing lock issue fixed</td></tr>
+    <tr><td>Start interoperability test</td><td><span class="badge-progress">In Progress</span></td><td>—</td></tr>
+    <tr><td>Issue isolation / debug</td><td><span class="badge-done">Done</span></td><td>Timing lock issue fixed</td></tr>
+    <tr><td>Test report</td><td><span class="badge-tbd">Not started</span></td><td>Milestone: 5/20</td></tr>
+    <tr><td>Vendor review / sign-off</td><td><span class="badge-tbd">Not started</span></td><td>Pending report</td></tr>
+  </tbody>
+</table>
+
+<h4>Common validation items across vendors</h4>
+<ul>
+  <li>C1.1 參數設定驗證：center frequency、SSB ARFCN、bandwidth、numerology</li>
+  <li>C1.2 O-RAN Fronthaul 驗證：eCPRI / M-plane / C-plane / U-plane</li>
+  <li>C1.3 多廠商互通性比較 / 問題定位</li>
+  <li>C1.4 Step 1 結果彙整，提供 Goal A / Goal B 作為 proof object</li>
+</ul>
+
+<h3>C2A. Step 2A — CPU PHY Path</h3>
 <blockquote>
-<p>Current status：equipment ready；OCUDU environment ready on Pega server；currently connecting to RU；possible timing lock issue。</p>
+  <p><strong>Status：<span class="badge-unlocked">解鎖</span></strong> — CUDA-accelerated OCUDU branch 本週公開；evaluation license 流程 DeepSig 提供中（→ 0.2.2）</p>
+  <p>Dependency：C1 基礎 fronthaul 連通穩定；C0 CPU server baseline；OmniPHY 整合介面可行性初步確認。</p>
 </blockquote>
+<div class="info-box">
+  <p><strong>Benchmarking 比較場景（2026-05-13 DeepSig 確認）：</strong></p>
+  <p>Scenario A：OCUDU vs Pegatron stack（同硬體）</p>
+  <p>Scenario B：Baseline OCUDU vs OCUDU + DeepSig 軟體加速</p>
+  <p>Scenario C：GPU-accelerated vs non-accelerated</p>
+  <p><em>DeepSig 建議：初期聚焦少量有意義的 KPI，優先選擇不強依賴相同硬體設置的 benchmarking 項目。</em></p>
+</div>
+<div class="milestone-box">
+  <strong>Action Item 2（2026-05-13）：</strong>ITRI 從 ORAN TIFG benchmarking items 中選定可行項目；目標 <strong>2026-06 底</strong>產出初步 performance baseline，分享至 OCUDU community。
+</div>
+<div class="warn-box">
+  <p><strong>⚠️ Disclosure 注意：</strong>涉及 OmniPHY 的比較結果（Scenario B）對外發表前，須事先取得 DeepSig 書面同意。End of June OCUDU 分享的 scope 限定在不含 OmniPHY 的 baseline 部分。</p>
+</div>
+
+<h4>ORAN TIFG 測試項目（供 End of June baseline 選用）</h4>
 <table>
-<thead><tr><th>Stage</th><th>Status</th><th>Notes</th></tr></thead>
-<tbody>
-<tr><td>Vendor engagement confirmed</td><td>Done</td><td>設備已到位</td></tr>
-<tr><td>Test plan confirmation</td><td>Ongoing</td><td>需確認測試範圍與成功標準</td></tr>
-<tr><td>Equipment ready in lab</td><td>Done</td><td>Equipment ready on Pega server</td></tr>
-<tr><td>System integration ready for test</td><td>Ongoing</td><td>OCUDU environment ready; connecting to RU</td></tr>
-<tr><td>Start interoperability test</td><td>Not started</td><td>Pending stable connection</td></tr>
-<tr><td>Issue isolation / debug</td><td>Ongoing</td><td>Possible timing lock issue</td></tr>
-<tr><td>Test report</td><td>Not started</td><td>Pending test completion</td></tr>
-<tr><td>Vendor review / sign-off</td><td>Not started</td><td>Pending report</td></tr>
-</tbody></table>
-<p class="track-label"><em>Common validation items across vendors</em></p>
+  <thead><tr><th>Test ID</th><th>測試項目</th><th>DUT</th><th>所需設備</th><th>End of June 可行性</th></tr></thead>
+  <tbody>
+    <tr><td>6.2</td><td>DL peak throughput</td><td>O-DU</td><td>UESim / COTS UE</td><td>✅ 優先</td></tr>
+    <tr><td>6.3</td><td>UL peak throughput</td><td>O-DU</td><td>UESim / COTS UE</td><td>✅ 優先</td></tr>
+    <tr><td>6.4</td><td>DL throughput（Good/Fair/Poor）</td><td>O-DU</td><td>UESim / COTS UE</td><td>✅</td></tr>
+    <tr><td>6.5</td><td>UL throughput（Good/Fair/Poor）</td><td>O-DU</td><td>UESim / COTS UE</td><td>✅</td></tr>
+    <tr><td>6.6</td><td>Bidirectional throughput</td><td>O-DU</td><td>UESim / COTS UE</td><td>✅</td></tr>
+    <tr><td>6.7</td><td>DL coverage / link budget</td><td>O-DU</td><td>UESim / COTS UE</td><td>✅</td></tr>
+    <tr><td>6.8</td><td>UL coverage / link budget</td><td>O-DU</td><td>UESim / COTS UE</td><td>✅</td></tr>
+    <tr><td>8.1</td><td>Simultaneous RRC UEs（1500 UE）</td><td>O-CU/DU</td><td><strong>UESim 必須</strong></td><td>⚠️ 待確認 UESim</td></tr>
+    <tr><td>8.2</td><td>UE State Transition（1200 UE）</td><td>O-CU/DU</td><td><strong>UESim 必須</strong></td><td>⚠️ 待確認 UESim</td></tr>
+    <tr><td>9.2</td><td>Traffic Steering</td><td>O-CU/DU + RIC</td><td>RUSim, SMO, RIC</td><td>🔵 中期</td></tr>
+    <tr><td>9.3</td><td>Network Energy Saving（→ C4 rApp）</td><td>O-CU/DU + RIC</td><td>RUSim, SMO, RIC</td><td>🔵 中期（→ Oct 2026）</td></tr>
+  </tbody>
+</table>
 <ul>
-<li id="c1-1"><a href="#c1-1" class="ct-badge">C1.1</a> 參數設定驗證：center frequency、SSB ARFCN、bandwidth、numerology</li>
-<li id="c1-2"><a href="#c1-2" class="ct-badge">C1.2</a> O-RAN Fronthaul 驗證：eCPRI / M-plane / C-plane / U-plane</li>
-<li id="c1-3"><a href="#c1-3" class="ct-badge">C1.3</a> 多廠商互通性比較 / 問題定位</li>
-<li id="c1-4"><a href="#c1-4" class="ct-badge">C1.4</a> Step 1 結果彙整，提供 <a href="#goal-a">Goal A</a> / <a href="#goal-b">Goal B</a> 作為 proof object</li>
+  <li>C2A.1 OCUDU + srsRAN L1 整合驗通</li>
+  <li>C2A.2 傳統 PHY（LMMSE）baseline 測試：BLER、Throughput、Latency（對應 TIFG 6.2–6.8）</li>
+  <li>C2A.3 DeepSig OmniPHY 軟體部署與 srsRAN / OCUDU 整合驗證</li>
+  <li>C2A.4 Neural Receiver vs. 傳統接收機 KPI 初步比較</li>
+  <li>C2A.5 不同 channel scenario 下的穩定性測試</li>
+  <li>C2A.6 Step 2A 結果文件化</li>
 </ul>
-<h3 id="c2a">C2A. Step 2A — CPU PHY Path</h3>
+
+<h3>C2B. Step 2B — GPU PHY Path</h3>
 <blockquote>
-<p>Purpose：建立 open-source CPU-based PHY baseline，對應昨天規劃中的 OCUDU + srsRAN L1 + DeepSig OmniPHY 路線。</p>
-<p>Dependency：<a href="#c1" class="ct-badge">C1</a> 基礎 fronthaul 連通穩定；<a href="#c0" class="ct-badge">C0</a> CPU server baseline；OmniPHY 整合介面可行性初步確認。</p>
-<p>Output：CPU path baseline + optional OmniPHY comparison result。</p>
+  <p>Dependency：C1 基礎 fronthaul 連通穩定；C0 GPU server baseline；NVIDIA Aerial cuPHY 可用性確認。</p>
+  <p>Output：GPU path baseline + solution comparison result。</p>
 </blockquote>
 <ul>
-<li id="c2a-1"><a href="#c2a-1" class="ct-badge">C2A.1</a> OCUDU + srsRAN L1 整合驗通</li>
-<li id="c2a-2"><a href="#c2a-2" class="ct-badge">C2A.2</a> 傳統 PHY（LMMSE）baseline 測試：BLER、Throughput、Latency</li>
-<li id="c2a-3"><a href="#c2a-3" class="ct-badge">C2A.3</a> DeepSig OmniPHY 軟體部署與 srsRAN / OCUDU 整合驗證</li>
-<li id="c2a-4"><a href="#c2a-4" class="ct-badge">C2A.4</a> Neural Receiver vs. 傳統接收機 KPI 初步比較</li>
-<li id="c2a-5"><a href="#c2a-5" class="ct-badge">C2A.5</a> 不同 channel scenario 下的穩定性測試</li>
-<li id="c2a-6"><a href="#c2a-6" class="ct-badge">C2A.6</a> Step 2A 結果文件化</li>
+  <li>C2B.1 NVIDIA Aerial cuPHY 架構技術深潛</li>
+  <li>C2B.2 GPU node 安裝：CUDA / TensorRT / driver baseline</li>
+  <li>C2B.3 OCUDU + NVIDIA Aerial cuPHY 整合驗通</li>
+  <li>C2B.4 GPU-accelerated PHY baseline 測試</li>
+  <li>C2B.5 評估加入 OmniPHY 做 solution comparison（optional）</li>
+  <li>C2B.6 Step 2B 結果文件化</li>
 </ul>
-<h3 id="c2b">C2B. Step 2B — GPU PHY Path</h3>
+
+<h3>C3. Step 3 — Neural Receiver Validation</h3>
 <blockquote>
-<p>Purpose：建立 GPU-accelerated PHY baseline，對應昨天規劃中的 OCUDU + NVIDIA Aerial cuPHY + optional OmniPHY 路線。</p>
-<p>Dependency：<a href="#c1" class="ct-badge">C1</a> 基礎 fronthaul 連通穩定；<a href="#c0" class="ct-badge">C0</a> GPU server baseline；NVIDIA Aerial cuPHY 可用性確認。</p>
-<p>Output：GPU path baseline + solution comparison result。</p>
+  <p><span class="badge-hold">Hold</span> — 待 C2A 或 C2B 至少一條 PHY path 可產生穩定 baseline。</p>
+  <p>Output：Neural Receiver validation report。</p>
 </blockquote>
 <ul>
-<li id="c2b-1"><a href="#c2b-1" class="ct-badge">C2B.1</a> NVIDIA Aerial cuPHY 架構技術深潛</li>
-<li id="c2b-2"><a href="#c2b-2" class="ct-badge">C2B.2</a> GPU node 安裝：CUDA / TensorRT / driver baseline</li>
-<li id="c2b-3"><a href="#c2b-3" class="ct-badge">C2B.3</a> OCUDU + NVIDIA Aerial cuPHY 整合驗通</li>
-<li id="c2b-4"><a href="#c2b-4" class="ct-badge">C2B.4</a> GPU-accelerated PHY baseline 測試</li>
-<li id="c2b-5"><a href="#c2b-5" class="ct-badge">C2B.5</a> 評估加入 OmniPHY 做 solution comparison（optional）</li>
-<li id="c2b-6"><a href="#c2b-6" class="ct-badge">C2B.6</a> Step 2B 結果文件化</li>
+  <li>C3.1 Neural Receiver 文獻整理：OmniPHY 白皮書、NVIDIA NRX、相關學術論文</li>
+  <li>C3.2 定義測試核心問題：要驗什麼、對誰有價值</li>
+  <li>C3.3 設計 channel impairment scenario：fading、interference、mobility、RU impairment</li>
+  <li>C3.4 定義量測指標：BLER、Throughput、Latency、compute load、power / thermal</li>
+  <li>C3.5 比較傳統 receiver vs. AI-native receiver KPI</li>
+  <li>C3.6 定義模型漂移偵測方法</li>
+  <li>C3.7 Step 3 結果文件化，支撐 Goal D / E 的差異化敘事</li>
 </ul>
-<h3 id="c3">C3. Step 3 — Neural Receiver Validation</h3>
+
+<h3>C4. Step 4 — ES rApp / AI-RAN Use Case Validation</h3>
 <blockquote>
-<p>Purpose：建立 AI-native receiver 與傳統接收機的第三方比較能力，形成 ITRI Lab 的差異化技術資產。</p>
-<p>Dependency：<a href="#c2a" class="ct-badge">C2A</a> 或 <a href="#c2b" class="ct-badge">C2B</a> 至少一條 PHY path 可產生穩定 baseline。</p>
-<p>Output：Neural Receiver validation report。</p>
+  <p>此為目前其他實驗室尚未建立的<strong>獨有測試用例</strong>。</p>
+  <p>Dependency：OCUDU 環境穩定；中華電信基地台或等效場景可接入。</p>
+</blockquote>
+<div class="milestone-box">
+  <strong>Milestone：2026-10 / 5G Summit</strong> — 分享 energy-saving rApp 驗證結果（Action Item 3，2026-05-13 DeepSig 會議確認）
+</div>
+
+<h4>C4.0 rApp ↔ OCUDU 對接前期 Study</h4>
+<blockquote>
+  <p><strong>Status：<span class="badge-progress">In Progress</span></strong> &nbsp;|&nbsp; <strong>Owner：</strong>衡安 &nbsp;|&nbsp; <strong>Milestone：5/15 產出時程</strong></p>
 </blockquote>
 <ul>
-<li id="c3-1"><a href="#c3-1" class="ct-badge">C3.1</a> Neural Receiver 文獻整理：OmniPHY 白皮書、NVIDIA NRX、相關學術論文</li>
-<li id="c3-2"><a href="#c3-2" class="ct-badge">C3.2</a> 定義測試核心問題：要驗什麼、對誰有價值</li>
-<li id="c3-3"><a href="#c3-3" class="ct-badge">C3.3</a> 設計 channel impairment scenario：fading、interference、mobility、RU impairment</li>
-<li id="c3-4"><a href="#c3-4" class="ct-badge">C3.4</a> 定義量測指標：BLER、Throughput、Latency、compute load、power / thermal</li>
-<li id="c3-5"><a href="#c3-5" class="ct-badge">C3.5</a> 比較傳統 receiver vs. AI-native receiver KPI</li>
-<li id="c3-6"><a href="#c3-6" class="ct-badge">C3.6</a> 定義模型漂移偵測方法</li>
-<li id="c3-7"><a href="#c3-7" class="ct-badge">C3.7</a> Step 3 結果文件化，支撐 <a href="#goal-d">Goal D</a> / <a href="#goal-e">Goal E</a> 的差異化敘事</li>
+  <li>評估 rApp 與 OCUDU 的對接可行性與技術路徑</li>
+  <li>輸出：開發時程與工作分解（5/15 前）</li>
 </ul>
-<h3 id="c4">C4. Step 4 — ES rApp / AI-RAN Use Case Validation</h3>
-<blockquote>
-<p>Purpose：把 Lab 能力從 component-level validation 延伸到 deployment-oriented use case validation。</p>
-<p>Dependency：OCUDU 環境穩定；中華電信基地台或等效場景可接入。</p>
-<p>Output：ES rApp closed-loop validation report。</p>
-</blockquote>
+
+<h4>C4.1–C4.7（前置：C4.0 完成，Owner / Milestone 待 5/15 輸出後展開）</h4>
 <ul>
-<li id="c4-1"><a href="#c4-1" class="ct-badge">C4.1</a> PM 資料接收流程調整：依實際基地台輸出的 PM XML 格式調整資料欄位</li>
-<li id="c4-2"><a href="#c4-2" class="ct-badge">C4.2</a> KPI 欄位對應確認：確認 PM XML 內有中華所需的 KPI 欄位</li>
-<li id="c4-3"><a href="#c4-3" class="ct-badge">C4.3</a> InfluxDB 寫入欄位調整：對應實際基地台的 gNB ID、Cell ID 與時間戳格式</li>
-<li id="c4-4"><a href="#c4-4" class="ct-badge">C4.4</a> O1 / NETCONF 控制流程修改：符合實際基地台支援的 NETCONF / YANG 格式</li>
-<li id="c4-5"><a href="#c4-5" class="ct-badge">C4.5</a> 流程 A 驗證：基地台 → 檔案傳送 → SMO → PMFileProcess → InfluxDB</li>
-<li id="c4-6"><a href="#c4-6" class="ct-badge">C4.6</a> 流程 B 驗證：ES rApp decision logic → O1 / NETCONF edit_config → 基地台回饋</li>
-<li id="c4-7"><a href="#c4-7" class="ct-badge">C4.7</a> Step 4 結果文件化</li>
+  <li>C4.1 PM 資料接收流程調整：依實際基地台輸出的 PM XML 格式調整資料欄位</li>
+  <li>C4.2 KPI 欄位對應確認：確認 PM XML 內有中華所需的 KPI 欄位</li>
+  <li>C4.3 InfluxDB 寫入欄位調整：對應實際基地台的 gNB ID、Cell ID 與時間戳格式</li>
+  <li>C4.4 O1 / NETCONF 控制流程修改：符合實際基地台支援的 NETCONF / YANG 格式</li>
+  <li>C4.5 流程 A 驗證：基地台 → 檔案傳送 → SMO → PMFileProcess → InfluxDB</li>
+  <li>C4.6 流程 B 驗證：ES rApp decision logic → O1 / NETCONF edit_config → 基地台回饋</li>
+  <li>C4.7 Step 4 結果文件化</li>
 </ul>
-<h3 id="c5">C5. Step 5 — Digital Twin / AI-RAN Validation Environment</h3>
+
+<h3>C5. Step 5 — Digital Twin / AI-RAN Validation Environment</h3>
 <blockquote>
-<p>Purpose：將真實硬體測試結果延伸到可重複、可擴展的模擬與數位孿生驗證環境。</p>
-<p>Dependency：Step 1–4 產生足夠真實測試資料與問題分類。</p>
-<p>Output：long-term Digital Twin / AI-RAN validation roadmap。</p>
+  <p>Dependency：Step 1–4 產生足夠真實測試資料與問題分類。</p>
+  <p>Output：long-term Digital Twin / AI-RAN validation roadmap。</p>
 </blockquote>
-<ul>
-<li id="c5-1"><a href="#c5-1" class="ct-badge">C5.1</a> 將 Step 1–4 的真實測試結果整理成可重用 validation dataset</li>
-<li id="c5-2"><a href="#c5-2" class="ct-badge">C5.2</a> 定義 Digital Twin 驗證環境需模擬的 channel、traffic、RU impairment 與 AI-RAN scenario</li>
-<li id="c5-3"><a href="#c5-3" class="ct-badge">C5.3</a> 規劃真實硬體測試與模擬環境的對照方法</li>
-<li id="c5-4"><a href="#c5-4" class="ct-badge">C5.4</a> 建立 AI-RAN validation scenario library</li>
-<li id="c5-5"><a href="#c5-5" class="ct-badge">C5.5</a> Step 5 長期能力 roadmap 文件化</li>
-</ul>
-<h3 id="c6">C6. Standardized Output Assets</h3>
+
+<h4>C5.0 多 RU 模擬環境建立（Digital Twin 起點）</h4>
 <blockquote>
-<p>Purpose：把各 Step 的測試結果轉成可重複使用、可提交、可對外溝通的 validation assets。</p>
-<p>Output：可支撐 <a href="#goal-a">Goal A</a> / <a href="#goal-b">Goal B</a> / <a href="#goal-d">Goal D</a> / <a href="#goal-e">Goal E</a> 的共用 proof package。</p>
+  <p><strong>Status：<span class="badge-progress">In Progress</span></strong> — 獨立啟動，不依賴 C4 完成。</p>
+  <p>目標：以 Viavi 環境為參考，建立可模擬多個 RU 的測試環境，支援 rApp / AI-RAN use case 驗證。</p>
 </blockquote>
+<div class="warn-box">
+  <p><strong>⚠️ License 限制：</strong>DeepSig Evaluation License 限制 max 2 RU。多 RU（&gt;2）場景若需使用 OmniPHY，須另行與 DeepSig 談 commercial license 或特別安排。</p>
+</div>
 <ul>
-<li id="c6-1"><a href="#c6-1" class="ct-badge">C6.1</a> 建立可重現的測試程序文件</li>
-<li id="c6-2"><a href="#c6-2" class="ct-badge">C6.2</a> 制定第三方驗證報告格式</li>
-<li id="c6-3"><a href="#c6-3" class="ct-badge">C6.3</a> 產出第一份完整 validation report</li>
-<li id="c6-4"><a href="#c6-4" class="ct-badge">C6.4</a> 測試環境 setup guide 文件化（供外部廠商參考）</li>
-<li id="c6-5"><a href="#c6-5" class="ct-badge">C6.5</a> 建立 capability-to-goal mapping：每項測試成果支撐哪一個 ecosystem outcome</li>
+  <li>C5.0.1 確認 Viavi 環境現況 — <strong>Owner：Alisha</strong>，Milestone：TBD</li>
+  <li>C5.0.2 評估復刻 Viavi 環境可行性，拉政哥的團隊 — <strong>Owner：Jeff 協調</strong>，Milestone：TBD</li>
 </ul>
+
+<ul>
+  <li>C5.1 將 Step 1–4 的真實測試結果整理成可重用 validation dataset</li>
+  <li>C5.2 定義 Digital Twin 驗證環境需模擬的 channel、traffic、RU impairment 與 AI-RAN scenario</li>
+  <li>C5.3 規劃真實硬體測試與模擬環境的對照方法</li>
+  <li>C5.4 建立 AI-RAN validation scenario library</li>
+  <li>C5.5 Step 5 長期能力 roadmap 文件化</li>
+</ul>
+
+<h3>C6. Standardized Output Assets</h3>
+<blockquote><p>Output：可支撐 Goal A / B / D / E 的共用 proof package。</p></blockquote>
+<ul>
+  <li>C6.1 建立可重現的測試程序文件</li>
+  <li>C6.2 制定第三方驗證報告格式</li>
+  <li>C6.3 產出第一份完整 validation report</li>
+  <li>C6.4 測試環境 setup guide 文件化（供外部廠商參考）</li>
+  <li>C6.5 建立 capability-to-goal mapping：每項測試成果支撐哪一個 ecosystem outcome</li>
+</ul>
+
 <hr>
+
+<!-- ==================== GOAL D ==================== -->
 <h2 id="goal-d" style="background:#0f766e">Goal D：差異化定位確立</h2>
-<blockquote>
-<p><strong>現況</strong>：無任何對外溝通材料、簡報或發表進行中，全新起步。</p>
-</blockquote>
-<h3 id="d1-定義差異化定位敘事">D1. 定義差異化定位敘事</h3>
-<blockquote>
-<p>前置條件：無，可立即啟動</p>
-<p>輸出：對外定位文件</p>
-</blockquote>
+<div class="milestone-box">
+  <strong>2026-05-13 重要確認：</strong>DeepSig 明確表示 ITRI 是目前<strong>唯一</strong>具備以下四項測試聚焦的合作夥伴：<br>
+  ① Third-party validation &nbsp; ② Open benchmarking &nbsp; ③ GPU/CUDA acceleration testing &nbsp; ④ Energy-saving rApp use cases<br>
+  此為高價值差異化論點，應盡快文件化。
+</div>
+
+<h3>D1. 定義差異化定位敘事</h3>
+<blockquote><p>前置條件：無，可立即啟動 &nbsp;|&nbsp; 輸出：對外定位文件</p></blockquote>
 <ul>
-<li id="d1-1">D1.1 界定 ITRI vs. SUTD 的差異化定位（lab-based vs. real hardware integration）</li>
-<li id="d1-2">D1.2 建立對不同受眾的核心訊息（對 DeepSig / OCUDU / AI-RAN Alliance / 台灣廠商）</li>
-<li id="d1-3">D1.3 將定位敘事文件化</li>
-<li><a href="#ct-0-4-3" class="ct-badge">→ 共同任務 0.4.3</a>（差異化定位核心訊息文件化）</li>
+  <li>D1.1 界定 ITRI vs. SUTD 的差異化定位（lab-based vs. real hardware integration）— <em>被動防禦框架：備妥外部被問時的標準答案</em></li>
+  <li>D1.2 建立對不同受眾的核心訊息（對 DeepSig / OCUDU / AI-RAN Alliance / 台灣廠商）</li>
+  <li>D1.3 將定位敘事文件化</li>
+  <li>D1.4 文件化「ITRI 為 DeepSig 唯一具備四項聚焦的合作夥伴」論點，作為對外簡報核心素材</li>
+  <li>D1.5 建立 TIP Community Lab vs. OTIC Lab 定位框架（中立性 + 台灣供應鏈接入）— <em>主動對外定框時的核心論點</em></li>
+  <li>D1.6 規劃產發署亮點故事包裝：從生態系整合到國際技術合作 / 商機開拓的完整敘事 <a href="#ct-0-4" class="ct-badge">→ 0.4.4</a></li>
 </ul>
-<h3 id="d2-對外溝通材料準備">D2. 對外溝通材料準備</h3>
-<blockquote>
-<p>前置條件：D1 完成</p>
-<p>輸出：可對外使用的溝通素材</p>
-</blockquote>
+
+<h3>D2. 對外溝通材料準備</h3>
+<blockquote><p>前置條件：D1 完成 &nbsp;|&nbsp; 輸出：可對外使用的溝通素材</p></blockquote>
 <ul>
-<li id="d2-1">D2.1 實驗室能力說明文件（<a href="#ct-0-4-1" class="ct-badge">→ 共同任務 0.4.1</a>）</li>
-<li id="d2-2">D2.2 台灣硬體生態系整合敘事（<a href="#ct-0-4-2" class="ct-badge">→ 共同任務 0.4.2</a>）</li>
-<li id="d2-3">D2.3 測試成果摘要（前置：<a href="#c6-3" class="ct-badge">C6.3</a> 第一份完整 validation report 完成）</li>
-<li id="d2-4">D2.4 對外簡報素材</li>
+  <li>D2.1 實驗室能力說明文件 <a href="#ct-0-4" class="ct-badge">→ 0.4.1</a></li>
+  <li>D2.2 台灣硬體生態系整合敘事 <a href="#ct-0-4" class="ct-badge">→ 0.4.2</a></li>
+  <li>D2.3 測試成果摘要（前置：C6.3 第一份完整 validation report 完成）</li>
+  <li>D2.4 對外簡報素材</li>
 </ul>
-<h3 id="d3-國際活動參與與曝光">D3. 國際活動參與與曝光</h3>
-<blockquote>
-<p>前置條件：D2 完成</p>
-<p>輸出：國際曝光紀錄</p>
-</blockquote>
+
+<h3>D3. 國際活動參與與曝光</h3>
+<blockquote><p>前置條件：D2 完成</p></blockquote>
 <ul>
-<li id="d3-1">D3.1 與 DeepSig / OCUDU / AI-RAN Alliance 共同發表或聯合展示</li>
-<li><a href="#ct-0-3" class="ct-badge">→ 共同任務 0.3</a>（活動參與規劃）</li>
+  <li>D3.1 與 DeepSig / OCUDU / AI-RAN Alliance 共同發表或聯合展示 <a href="#ct-0-3" class="ct-badge">→ 0.3</a></li>
 </ul>
-<h3 id="d4-showcase-活動規劃">D4. Showcase 活動規劃</h3>
-<blockquote>
-<p>前置條件：<a href="#goal-c">Goal C</a> 產出初步測試結果（至少 <a href="#c1" class="ct-badge">C1</a> / <a href="#c2a" class="ct-badge">C2A</a> / <a href="#c2b" class="ct-badge">C2B</a> 任一項）</p>
-</blockquote>
+
+<h3>D4. Showcase 活動規劃</h3>
+<blockquote><p>前置條件：Goal C 產出初步測試結果（至少 C1 / C2A / C2B 任一項）</p></blockquote>
 <ul>
-<li id="d4-1">D4.1 規劃實驗室對外參訪（對象：RU 廠商、電信商、國際合作夥伴）</li>
-<li id="d4-2">D4.2 規劃台灣 RU 廠商整合展示場景（demo setup）</li>
-<li id="d4-3">D4.3 評估主辦小型 AI-RAN integration workshop</li>
+  <li>D4.1 規劃實驗室對外參訪（對象：RU 廠商、電信商、國際合作夥伴）</li>
+  <li>D4.2 規劃台灣 RU 廠商整合展示場景（demo setup）</li>
+  <li>D4.3 評估主辦小型 AI-RAN integration workshop</li>
 </ul>
-<h3 id="d5-定位結果追蹤">D5. 定位結果追蹤</h3>
+
+<h3>D5. 定位結果追蹤</h3>
 <ul>
-<li id="d5-1">D5.1 定義可觀察的代理指標（詢問次數、引用次數、受邀演講次數）</li>
-<li id="d5-2">D5.2 定期檢視外部對 ITRI 的定位描述</li>
-<li id="d5-3">D5.3 記錄合作夥伴主動引薦案例</li>
+  <li>D5.1 定義可觀察的代理指標（詢問次數、引用次數、受邀演講次數）</li>
+  <li>D5.2 定期檢視外部對 ITRI 的定位描述</li>
+  <li>D5.3 記錄合作夥伴主動引薦案例</li>
 </ul>
+
 <hr>
+
+<!-- ==================== GOAL E ==================== -->
 <h2 id="goal-e" style="background:#b45309">Goal E：AI-RAN Alliance Endorsed Lab 認定</h2>
 <blockquote>
-<p><strong>現況</strong>：ITRI 已是 AI-RAN Alliance 會員。下一步是透過會員管道詢問如何成為 endorsed lab，條件與流程尚不清楚。</p>
+  <p><strong>現況：</strong>ITRI 已是 AI-RAN Alliance 會員。下一步是透過會員管道詢問如何成為 endorsed lab，條件與流程尚不清楚。</p>
+  <p><strong>市場背景：</strong>業界感知 O-RAN Alliance 動作放慢，AI-RAN Alliance 動能上升；OTIC 數量過多，部分淪為 pay-to-pass，公信力稀釋。ITRI 的重點不在「也有一個認證」，而在凸顯無法被複製的差異化定位。Endorsed lab 認定是長期加分項，不是近期核心任務。</p>
 </blockquote>
-<h3 id="e1-釐清-endorsed-lab-條件">E1. 釐清 Endorsed Lab 條件</h3>
-<blockquote>
-<p>狀態：尚未啟動，是下一步行動</p>
-<p>輸出：endorsed lab 申請條件清單</p>
-</blockquote>
+
+<h3>E1. 釐清 Endorsed Lab 條件</h3>
+<blockquote><p>狀態：尚未啟動 &nbsp;|&nbsp; 輸出：endorsed lab 申請條件清單</p></blockquote>
 <ul>
-<li id="e1-1">E1.1 透過會員管道詢問 endorsed lab 申請流程與條件</li>
-<li id="e1-2">E1.2 釐清實驗室能力門檻（設備、use case、測試項目）</li>
-<li id="e1-3">E1.3 確認是否需要現有 endorsed lab 推薦或擔保</li>
-<li id="e1-4">E1.4 釐清 endorsed lab 能獲得什麼（co-branding、working group、曝光）</li>
-<li id="e1-5">E1.5 確認認定後的維持條件與更新週期</li>
+  <li>E1.1 透過會員管道詢問 endorsed lab 申請流程與條件</li>
+  <li>E1.2 釐清實驗室能力門檻（設備、use case、測試項目）</li>
+  <li>E1.3 確認是否需要現有 endorsed lab 推薦或擔保</li>
+  <li>E1.4 釐清 endorsed lab 能獲得什麼（co-branding、working group、曝光）</li>
+  <li>E1.5 確認認定後的維持條件與更新週期</li>
 </ul>
-<h3 id="e2-能力缺口評估">E2. 能力缺口評估</h3>
-<blockquote>
-<p>前置條件：E1 完成</p>
-<p>輸出：缺口清單與補足計畫</p>
-</blockquote>
+
+<h3>E2. 能力缺口評估</h3>
+<blockquote><p>前置條件：E1 完成 &nbsp;|&nbsp; 輸出：缺口清單與補足計畫</p></blockquote>
 <ul>
-<li id="e2-1">E2.1 對照申請條件，盤點現有能力符合項目</li>
-<li id="e2-2">E2.2 識別缺口（設備、測試案例、use case 覆蓋）</li>
-<li id="e2-3">E2.3 確認 C 的產出能否覆蓋申請所需的測試佐證</li>
-<li id="e2-4">E2.4 制定缺口補足計畫</li>
+  <li>E2.1 對照申請條件，盤點現有能力符合項目</li>
+  <li>E2.2 識別缺口（設備、測試案例、use case 覆蓋）</li>
+  <li>E2.3 確認 C 的產出能否覆蓋申請所需的測試佐證</li>
+  <li>E2.4 制定缺口補足計畫</li>
 </ul>
-<h3 id="e3-申請準備">E3. 申請準備</h3>
-<blockquote>
-<p>前置條件：E2 完成，<a href="#c6-3" class="ct-badge">C6.3</a> 第一份完整 validation report 完成</p>
-<p>輸出：完整申請材料</p>
-</blockquote>
+
+<h3>E3. 申請準備</h3>
+<blockquote><p>前置條件：E2 完成，C6.3 第一份完整 validation report 完成 &nbsp;|&nbsp; 輸出：完整申請材料</p></blockquote>
 <ul>
-<li id="e3-1">E3.1 整理可佐證的測試成果（來自 <a href="#c6-3" class="ct-badge">C6.3</a>）</li>
-<li id="e3-2">E3.2 準備台灣硬體生態系整合的差異化敘事（<a href="#ct-0-4" class="ct-badge">→ 共同任務 0.4</a>）</li>
-<li id="e3-3">E3.3 取得必要的推薦或擔保（若 E1.3 有此要求）</li>
+  <li>E3.1 整理可佐證的測試成果（來自 C6.3）</li>
+  <li>E3.2 準備台灣硬體生態系整合的差異化敘事 <a href="#ct-0-4" class="ct-badge">→ 0.4</a></li>
+  <li>E3.3 取得必要的推薦或擔保（若 E1.3 有此要求）</li>
 </ul>
-<h3 id="e4-申請提交與認定">E4. 申請提交與認定</h3>
-<blockquote>
-<p>前置條件：E3 完成</p>
-</blockquote>
+
+<h3>E4. 申請提交與認定</h3>
+<blockquote><p>前置條件：E3 完成</p></blockquote>
 <ul>
-<li id="e4-1">E4.1 提交正式申請</li>
-<li id="e4-2">E4.2 回應審核過程中的問題或補件要求</li>
-<li id="e4-3">E4.3 取得 AI-RAN Alliance Endorsed Lab 認定</li>
+  <li>E4.1 提交正式申請</li>
+  <li>E4.2 回應審核過程中的問題或補件要求</li>
+  <li>E4.3 取得 AI-RAN Alliance Endorsed Lab 認定</li>
 </ul>
-<h3 id="e5-認定後維持">E5. 認定後維持</h3>
+
+<h3>E5. 認定後維持</h3>
 <ul>
-<li id="e5-1">E5.1 參與 AI-RAN Alliance working group / 定期活動（已在進行）</li>
-<li id="e5-2">E5.2 定期回報實驗室活動成果</li>
-<li id="e5-3">E5.3 持續更新認定所需能力與文件</li>
+  <li>E5.1 參與 AI-RAN Alliance working group / 定期活動（已在進行）</li>
+  <li>E5.2 定期回報實驗室活動成果</li>
+  <li>E5.3 持續更新認定所需能力與文件</li>
 </ul>
+
 </body>
 </html>
