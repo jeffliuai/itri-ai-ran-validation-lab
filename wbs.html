@@ -250,14 +250,17 @@
     .timeline-head span:first-child { display: none; }
     .timeline-cell { min-height: 30px; }
   }
+  .mermaid { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin: 16px 0; overflow-x: auto; text-align: center; }
 </style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true, theme:'default'});</script>
 </head>
 <body>
 
 <h1>ITRI AI-RAN Validation Lab WBS</h1>
 <p class="doc-meta">
-  <span><strong>Version:</strong> v0.6</span>
-  <span><strong>Last updated:</strong> 2026-06-01 CST</span>
+  <span><strong>Version:</strong> v0.8</span>
+  <span><strong>Last updated:</strong> 2026-07-06 CST（補齊 W25 3GPP Rel-21 時程、W27 G-Reigns/Energy Saving 雙線、W28 OCUDU WG kickoff + TSC 治理 WG 追蹤）</span>
 </p>
 
 <h2 class="overview-h2">背景與目的</h2>
@@ -274,9 +277,83 @@
   <li><a href="#goal-c"><strong>Goal C</strong></a>：技術核心，validation capability portfolio。</li>
 </ol>
 
-<h2 class="overview-h2">本週狀態更新（2026-06-01）</h2>
+<h2 class="overview-h2" id="update-w28">本週狀態更新（2026-07-06，W28）</h2>
+<h3>OCUDU Test &amp; Validation Working Group Kick-off（會議紀要）</h3>
+<blockquote><p>主持：Ranny｜性質：新成立 Working Group，聚焦透過 testing/validation 讓 OCUDU 生態系成熟。</p></blockquote>
 <div class="info-box">
-  <p><strong>June baseline 主路徑切換：</strong>Pegatron O-RU interoperability 仍卡住，6 月底 OCUDU baseline proof object 改以 <strong>LIONS RU</strong> 為主線。LIONS RU 預計本週進入實驗室；Pegatron 降為 parallel debug / second-wave candidate。</p>
+  <p><strong>會議重點：</strong></p>
+  <ol>
+    <li><strong>WG 定位與資源</strong>：盤點現有 test labs、討論資源分配、探討建立 AI/ML 用共享資料集的可行性。Mari 補充：FutureG office 透過 GTRI、NIOSH 也有相關工作在進行；SBIR solicitations 等為潛在資金來源。</li>
+    <li><strong>現有測試進度（Sarat）</strong>：Cosmos/OTIX 整合（含 Airspan RUs，Rutgers）｜戶外 jamming detection/mitigation（Powder Labs）｜能耗量測管理（i14y Labs）。潛在未來合作學校：University of Iowa、Virginia Tech、University of Bristol。UNH（Lincoln）近況：Ranny 有詢問，會議記錄未捕捉到回覆。</li>
+    <li><strong>部署基礎設施（Lincoln）</strong>：暫定計畫將 Kudo 部署至 platform providers 基礎設施，延續先前 open source DU/CU + network energy savings 工作；<strong>Ansible playbook 框架</strong>正貢獻至 <strong>Linux Foundation Super Blueprint project</strong>（Sarat 確認此為彈性部署的方向）。Ranny 請各參與者更新共享 Google 文件（各自 Kudo test lab 資訊）；共享資料集是社群另一關注議題。</li>
+    <li><strong>Metrics 收集</strong>：目標在 E2E lab deployment / pilot study 中收集 infrastructure + application metrics，形成對 xApp/rApp 開發者有價值的資料集。Sarat：Rutgers Cosmos 已有 energy/performance 量測基礎設施。Sridhar 強調需「萃取資料 + 附正確 metadata」才具備實際可用性，非單純收資料。資源分配：Lincoln + Andre 確認目前 Kudu Technical Project CI/CD 基礎設施資金已涵蓋，擴大 device testing 範圍可能需額外資金。</li>
+    <li><strong>Test Lab 規劃方法論（Douglas）</strong>：強調先明確定義 objectives / use cases，才進行設備採購，建議仿照 O-RAN 的 proposal-based 方式。共識：發展範圍明確的 mini-projects，未來可作為 RFP / funding proposal 基礎。<strong>Sarat 自願主導 mini-projects 建立</strong>，Lincoln 協助 interoperability 面向。會議也決定調整開會時區以涵蓋不同地區參與者。</li>
+  </ol>
+</div>
+<div class="warn-box">
+  <p><strong>對 ITRI 的意義（cross-reference 既有 WBS 項目，非新增獨立任務樹）：</strong></p>
+  <ul>
+    <li><strong>共享資料集已是 WG 層級議題</strong> — 呼應 <a href="#goal-d" class="ct-badge">→ D1.8</a>（D4AI 亞太 OTA 節點論述）：OCUDU 社群本身就在討論建立跨 lab 共享測試資料集。ITRI 若主動對接、提早登記亞太資料貢獻節點角色，敘事會比「事後才加入」更有卡位價值。</li>
+    <li><strong>Metrics + metadata 的具體要求（Sridhar）</strong> 補強了 <a href="#ct-0-5" class="ct-badge">→ 0.5</a>（實驗室資料庫建立）的設計標準：不只記錄測試結果，需比照 WG 期待的 metadata 規格，未來才有機會直接餵給 OCUDU 共享資料集。</li>
+    <li><strong>Ansible playbook / Linux Foundation Super Blueprint</strong> 是現成技術資產，若 ITRI 未來在 <strong>C4（Energy Saving rApp）</strong>或部署自動化上有需求，可評估直接對接而非重新造輪子。</li>
+    <li><strong>Douglas「先定義 use case 再採購設備」方法論</strong> 與 ITRI 現行 <a href="#goal-c" class="ct-badge">→ Goal C</a> 分層路線（Step 1–5）邏輯一致，可作為對外佐證引用，強化 <strong>D1</strong> 差異化敘事的方法論正當性。</li>
+    <li><strong>Sarat 主導的 mini-projects 徵集</strong> 可能是 ITRI 未來申請 <a href="#goal-a" class="ct-badge">→ Goal A</a>（OCUDU Lab Test Partner 身分）或補強 <a href="#goal-b" class="ct-badge">→ Goal B</a>（vendor matrix）佐證的窗口；會議記錄未提供徵集時間點，需追蹤後續公告。</li>
+    <li><strong>Action Item（待決定）</strong>：是否依 Ranny 要求，在 OCUDU 共享 Google 文件中登錄 ITRI 實驗室資訊——這會讓 ITRI 從「觀察」變成「已登記的 test lab」，建議與 A1（釐清實驗室條件）一併確認後執行。</li>
+  </ul>
+</div>
+
+<h2 class="overview-h2" id="update-w27">本週狀態更新（2026-06-29，W27）</h2>
+<h3>G-Reigns 測試線啟動（新增）</h3>
+<p>G-Reigns 已確認參與以下三項 E2E 測試（從 Watch list 升格為 Category B）：</p>
+<ol>
+  <li>Throughput 測試（DL / UL）</li>
+  <li>Multi-vendor RU 互通性測試（WNC、Lite-ON 為候選 RU 廠牌）</li>
+  <li>多 UE 測試（目標：對齊 128 UE benchmarking 現有數據）</li>
+</ol>
+<p>所有 OCUDU E2E 測試結果（LIONS + G-Reigns）目標提交至 OCUDU Foundation，接在 June 底 LIONS baseline 之後。</p>
+
+<h3>Energy Saving 雙線確認</h3>
+<ul>
+  <li><strong>LIONS 線</strong>：與 LIONS EMS 對接，以 plug-fest 為主（C4.SONIC，已有規劃）</li>
+  <li><strong>G-Reigns 線</strong>：執行 energy saving rApp 整合測試（C4.GR，新增；責任邊界待討論）</li>
+</ul>
+<div class="mermaid">
+flowchart TD
+    BASE["✅ June 底 LIONS E2E Baseline\n（C1A interop 完成）"]
+
+    subgraph E2E["📡 OCUDU E2E 測試（接 June baseline 之後）"]
+        direction TB
+        subgraph LI["LIONS"]
+            L1["Throughput 優化\nC1A.1\n⚠️ 需先釐清測試環境"]
+            L2["多 UE\nC1A.2\n128 UE benchmarking"]
+        end
+        subgraph GRE["G-Reigns"]
+            G1["Throughput 測試\nC1C.1"]
+            G2["Multi-vendor RU Interop\nC1C.2\nWNC / Lite-ON"]
+            G3["多 UE\nC1C.3\n128 UE benchmarking"]
+        end
+    end
+
+    subgraph ES["⚡ Energy Saving"]
+        direction TB
+        subgraph LIS["LIONS + EMS"]
+            E1["Plug-fest\nC4.SONIC"]
+        end
+        subgraph GRS["G-Reigns"]
+            E2["rApp 整合測試\nC4.GR\n⚠️ 責任邊界 TBD"]
+        end
+    end
+
+    BASE --> E2E
+    BASE --> ES
+    E2E --> OCUDU["🎯 提交 OCUDU Foundation"]
+    ES --> OCUDU
+</div>
+
+<h2 class="overview-h2" id="update-w25">本週狀態更新（2026-06-15，W25）</h2>
+<h3>LIONS RU E2E 測試進度</h3>
+<div class="info-box">
+  <p><strong>June baseline 主路徑：</strong>Pegatron O-RU interoperability 仍卡住，6 月底 OCUDU baseline proof object 以 <strong>LIONS RU</strong> 為主線。Pegatron 降為 parallel debug / second-wave candidate。</p>
 
   <div class="e2e-timeline" aria-label="LIONS RU E2E testing timeline">
     <div class="timeline-title">LIONS RU E2E 測試時程（2026-06）</div>
@@ -312,7 +389,28 @@
     </div>
   </div>
 
-  <p><strong>DeepSig 授權合約進度：</strong>DeepSig evaluation license / research authorization 已完成上週五法務審核，進入簽署前準備。簽署前仍需確認 server / UE / compliance readiness，避免 60 天 evaluation window 被環境準備消耗。</p>
+  <p><strong>DeepSig 授權合約進度：</strong>DeepSig evaluation license / research authorization 已完成法務審核（2026-05-29），進入簽署前準備。簽署前仍需確認 server / UE / compliance readiness，避免 60 天 evaluation window 被環境準備消耗。</p>
+</div>
+
+<h3>3GPP RAN#112 Singapore 結論（2026-06-11）</h3>
+<div class="milestone-box">
+  <strong>Rel-21（6G）時程正式落地。</strong>
+</div>
+<div class="mermaid">
+gantt
+    title Rel-21（6G）標準時程
+    dateFormat  YYYY-MM-DD
+    axisFormat  %Y-%m
+
+    section 階段
+    Stage-1（WI approval 前）     :s1, 2026-06-15, 2027-03-01
+    Stage-2/3（normative specs）  :s2, 2027-03-01, 2028-12-01
+    ASN.1 encoding                :s3, 2028-12-01, 2029-03-01
+
+    section 里程碑
+    6G WI 批准 + Stage-1 freeze（RAN#115） :milestone, m1, 2027-03-01, 0d
+    Stage-3 freeze（RAN#122）              :milestone, m2, 2028-12-01, 0d
+    ASN.1 freeze                           :milestone, m3, 2029-03-01, 0d
 </div>
 
 <h3>外部資訊</h3>
@@ -359,7 +457,7 @@
     <tr><td>0.1.1 GPU 節點（NVIDIA A100 或 L40S）</td><td><span class="badge-tbd">待確認</span></td></tr>
     <tr><td>0.1.2 高效能 CPU 伺服器（AMD 3D V-Cache）</td><td><span class="badge-tbd">待確認</span></td></tr>
     <tr><td>0.1.3 PTP Grandmaster Clock（Category B fronthaul timing）</td><td><span class="badge-tbd">待確認</span></td></tr>
-    <tr><td>0.1.4 UE 模擬器評估（AmariSoft 或 COTS 手機）</td><td><span class="badge-tbd">待確認現有設備</span></td></tr>
+    <tr><td>0.1.4 UE 模擬器評估</td><td><span class="badge-tbd">待確認現有設備</span><br><small>選項 A：AmariSoft UESim（商業授權）｜選項 B：COTS 手機（無可觀測性）｜選項 C：<strong>OAI UE Platform</strong>（開源、OCUDU 相容、具 IQ/CSI/ISAC 可觀測性，USRP N310/X410 + Jetson AGX Orin 原型中）⭐ 建議優先評估</small></td></tr>
     <tr><td>0.1.5 OCUDU 26.04 環境建置（CU / DU-high：L3 + L2 + MAC / Scheduler）</td><td><span class="badge-done">✅ Done</span></td></tr>
     <tr><td>0.1.6 O-RAN Fronthaul 環境建置（eCPRI / M-plane / C-plane / U-plane）</td><td><span class="badge-progress">In Progress</span></td></tr>
     <tr><td>0.1.7 PTP 同步部署與驗證</td><td><span class="badge-done">✅ Done（timing lock fixed）</span></td></tr>
@@ -374,8 +472,18 @@
     <tr><td>0.2.2 取得 OmniPHY setup guide、minimum requirements、hardware requirements</td><td><span class="badge-progress">In Progress</span><br><small>DeepSig evaluation license / research authorization 已完成法務審核（2026-05-29），進入簽署前準備；ITRI 需在簽署前確認 server 規格、UE 設備與 compliance readiness</small></td><td>Jeff</td><td><strong>簽署前完成</strong></td></tr>
     <tr><td>0.2.3 確認 OmniPHY 與 OCUDU/SRS 整合介面可行性</td><td><span class="badge-tbd">TBD</span></td><td>—</td><td>TBD</td></tr>
     <tr><td>0.2.4 借道 DeepSig 引薦接觸 OCUDU/Linux Foundation</td><td><span class="badge-progress">In Progress</span></td><td>DeepSig 主導 / Jeff 跟進</td><td>TBD</td></tr>
+    <tr><td>0.2.5 追蹤 OCUDU TSC 治理層級 Working Group（WG-HWACCEL / WG-AIRAN）</td><td><span class="badge-progress">持續觀察</span></td><td>Jeff</td><td>TBD</td></tr>
   </tbody>
 </table>
+<div class="info-box">
+  <p><strong>0.2.5（2026-07-06 新增）OCUDU TSC 治理層級新設兩個 Working Group，皆由 DeepSig Tim O'Shea（<code>@oshtim</code>）發起並擔任 Chair + TSC Liaison，MR !4 已由 Andre Puschmann（TSC）審核 merge（2026-05-27）：</strong></p>
+  <ul>
+    <li><strong><a href="https://gitlab.com/ocudu/community/Governance/-/work_items/1" target="_blank" rel="noopener">WG-0001-HWACCEL</a>（Hardware Acceleration WG）</strong>：孵化 OCUDU 跨異質硬體加速能力。Deliverable 含「NVIDIA GPU/CUDA L1 加速 reference design + 效能數據」「可重現 benchmark suite + baseline」——與 <strong>C2A / C2B（CPU/GPU PHY Path）</strong>高度重疊。</li>
+    <li><strong><a href="https://gitlab.com/ocudu/community/Governance/-/work_items/2" target="_blank" rel="noopener">WG-0002-AIRAN</a>（AI-RAN WG）</strong>：孵化 OCUDU 上的 AI-RAN 應用/介面/資料路徑/benchmark。Deliverable 含「AI-RAN 效能 benchmark toolkit（暫名 AI-RAN-Perf）」——與 <strong>C2A / C3（benchmark 產出）</strong>高度重疊，並呼應 <strong>D1.4</strong>（ITRI 為 DeepSig 唯一四項聚焦夥伴）論點的具體佐證。</li>
+    <li><strong>治理現況</strong>：狀態 proposed（建立 2026-05-12，預計 2026-12-30 結束）；決策採共識制，無共識由 chair 裁定；每月固定會議（將與 Linux Foundation 協調行事曆）；membership open，於對應 GitLab issue 留言即可加入，已各有 1–2 人表態加入。</li>
+    <li><strong>ITRI 立場：持續觀察</strong>，尚未決定是否正式加入；後續追蹤會議節奏與 deliverable 進度，評估現有 Goal C 產出（CPU/GPU baseline、benchmark 結果）是否適合貢獻進這兩個 WG 的正式產出物，作為比雙邊 DeepSig 關係更具治理份量的參與管道。</li>
+  </ul>
+</div>
 <div class="info-box">
   <p><strong>2026-05-13 Action Item 1：</strong>DeepSig 提供 evaluation license 流程、CUDA branch access、neural receiver evaluation support。ITRI 需準備 testing environment + 評估 resource allocation。</p>
 </div>
@@ -505,16 +613,24 @@
 
 <p class="vendor-cat">Category B — Potential next wave</p>
 <ul>
-  <li>B2.3 <strong>Metanoia（義傳）</strong>：主動加入 OCUDU（非客戶驅動），DeepSig 視為獨特案例；DeepSig 台灣訪問（6/15 週）將接觸；待確認設備出借時程與合作意願</li>
-  <li>B2.4 LITEON：待完成初步接觸，確認意願與設備出借時程</li>
+  <li>B2.3 <strong>Metanoia（義傳）</strong>：主動加入 OCUDU（非客戶驅動），DeepSig 視為獨特案例。<strong>2026-06-02 更新：</strong>DeepSig × Metanoia × ITRI 三方會議時間已確認（6/15 週 DeepSig 台灣訪問）。MOSART Phase 1 已開源（Apache 2.0），OCUDU 整合介面技術上可行；合作計劃仍待評估。⚠️ <strong>風險：</strong>Metanoia 目前訴求偏向尋找金主／投資方，合作形式與 ITRI 定位（生態催化）是否吻合需在 6/15 會面中釐清，避免陷入純資源承諾。</li>
+  <li>B2.4 LITEON：待完成初步接觸，確認意願與設備出借時程。<strong>2026-06-29 更新：</strong>已列為 G-Reigns multi-vendor RU interop 測試候選廠牌之一（另一候選：WNC）。</li>
+  <li>B2.8 <strong>G REIGNS</strong>：美國國防客戶需求驅動（替換 Radisys / Capgemini stack）。<strong>2026-06-29 升格為 Category B：</strong>已確認參與以下三項 E2E 測試（<a href="#goal-c" class="ct-badge">→ C1C</a>）：
+    <ul>
+      <li>Throughput 測試（DL / UL）</li>
+      <li>Multi-vendor RU 互通性（WNC / Lite-ON 為候選 RU）</li>
+      <li>多 UE（128 UE benchmarking）</li>
+      <li>Energy saving rApp 整合測試（<a href="#goal-c" class="ct-badge">→ C4.GR</a>；責任邊界待討論）</li>
+      <li>⚠️ 設備到位方式（進 ITRI 實驗室 / 遠端 / 赴場）待確認</li>
+    </ul>
+  </li>
 </ul>
 
 <p class="vendor-cat">Category C — Watch list / optional</p>
 <ul>
-  <li>B2.5 WNC：先評估合作可行性</li>
+  <li>B2.5 WNC：先評估合作可行性，確認是否正式納入 C1 backlog。<strong>2026-06-29 更新：</strong>已列為 G-Reigns multi-vendor RU interop 候選廠牌之一。</li>
   <li>B2.6 QCT：待確認合作切入點與設備 / 場景可行性</li>
   <li>B2.7 Synergy Design Technology Limited：待確認合作切入點</li>
-  <li>B2.8 G REIGNS：美國國防客戶需求驅動（替換 Radisys / Capgemini stack）；列入觀察名單。<strong>2026-06-01 更新：</strong>無意願參加 SONIC plugfest，因此 plugfest 支線改由 ITRI 實驗室整合 LIONS RU + EMS 支援</li>
 </ul>
 
 <h3>B3. 申請材料準備與提交</h3>
@@ -592,6 +708,9 @@
   <p><strong>Current status：</strong>LIONS RU 預計 2026-06-01 週進入實驗室；採購流程仍可並行，但 June baseline 以入場 RU 先完成 OCUDU interoperability / fronthaul baseline 為主。</p>
   <p><strong>Immediate Action：</strong>確認 LIONS RU 到場日期、cabling / PTP / M-plane access、測試參數與窗口 — Owner: Jeff + 偉銘</p>
 </blockquote>
+<div class="info-box">
+  <p><strong>2026-06-02 工具補充：</strong>Ennoia FH Analyzer（AI-based Fronthaul PCAP 分析工具）已部署於 VALOR Lab，Alliance 會員可用。功能涵蓋 Beamforming weights、PTP sync 狀態、EVM、UL/DL IQ constellation 分析——針對 fronthaul 除錯效果顯著（整合時間宣稱縮短 10x）。⚠️ 建議在 6/15 DeepSig 台灣訪問時確認 ITRI 是否可存取或引入此工具，作為 LIONS RU 整合除錯的輔助手段。</p>
+</div>
 
 <div class="e2e-timeline" aria-label="LIONS RU E2E testing timeline">
   <div class="timeline-title">LIONS RU E2E 測試時程（2026-06）</div>
@@ -641,6 +760,31 @@
   </tbody>
 </table>
 
+<h4>C1A.1 LIONS Throughput 優化（2026-06-29 新增）</h4>
+<blockquote>
+  <p><strong>Purpose：</strong>在 interop baseline 穩定後，進一步優化 throughput，目標對齊 LIONS LinkedIn 公開數字。</p>
+  <p>⚠️ <strong>前提：</strong>必須先釐清 LIONS LinkedIn 測試環境（bandwidth / numerology / MCS / server 規格）與 ITRI 實驗室環境差異，確認目標數字是否在相同測試條件下可達成。若環境差異顯著，以「ITRI 環境下可達最優值」作為 DoD，而非直接複製 LinkedIn 數字。</p>
+  <p><strong>Owner：</strong>TBD &nbsp;|&nbsp; <strong>Milestone：</strong>TBD（接 June baseline 之後）</p>
+</blockquote>
+<ul>
+  <li>C1A.1.1 確認 LIONS LinkedIn 測試環境參數（bandwidth、numerology、MCS、UE 數、server 規格）</li>
+  <li>C1A.1.2 對比 ITRI 實驗室環境差異，評估 gap 來源</li>
+  <li>C1A.1.3 調整 OCUDU / DU 參數進行 throughput 優化</li>
+  <li>C1A.1.4 記錄最優 throughput 結果，文件化測試條件</li>
+</ul>
+
+<h4>C1A.2 LIONS 多 UE 測試（2026-06-29 新增）</h4>
+<blockquote>
+  <p><strong>Purpose：</strong>擴展 LIONS RU 場景至多 UE，目標與現有 128 UE benchmarking 數據對齊。</p>
+  <p><strong>Owner：</strong>TBD &nbsp;|&nbsp; <strong>Milestone：</strong>TBD &nbsp;|&nbsp; <strong>Dependency：</strong>C1A interop baseline 穩定；UE 設備確認 <a href="#ct-0-1" class="ct-badge">→ 0.1.4</a></p>
+</blockquote>
+<ul>
+  <li>C1A.2.1 確認現有 128 UE 測試數據的測試條件與環境</li>
+  <li>C1A.2.2 確認多 UE 場景所需 UE 設備（COTS 手機 / OAI UE / UESim）</li>
+  <li>C1A.2.3 執行多 UE 場景測試，記錄 throughput / latency / stability</li>
+  <li>C1A.2.4 與 128 UE baseline 數據做 benchmarking 比較</li>
+</ul>
+
 <h4>C1B. Pega O-RU Interoperability Test</h4>
 <blockquote>
   <p><strong>Owner：</strong>偉銘 &nbsp;|&nbsp; <strong>Milestone：</strong>TBD（待 blocker 釐清）</p>
@@ -659,6 +803,46 @@
     <tr><td>Vendor review / sign-off</td><td><span class="badge-tbd">Not started</span></td><td>Pending blocker resolution</td></tr>
   </tbody>
 </table>
+
+<h4 id="c1c">C1C. G-Reigns E2E Test（2026-06-29 新增）</h4>
+<blockquote>
+  <p><strong>Current status：</strong>已與 G-Reigns 確認三項測試意願；設備到位方式（ITRI 實驗室 / 遠端 / 赴場）待確認。</p>
+  <p><strong>Owner：</strong>TBD &nbsp;|&nbsp; <strong>Milestone：</strong>TBD（接 June LIONS baseline 之後） &nbsp;|&nbsp; <strong>Dependency：</strong>C1C.1 環境條件確認完成；RU 廠牌（WNC / Lite-ON）設備到位</p>
+</blockquote>
+<table>
+  <thead><tr><th>Stage</th><th>Status</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Vendor engagement confirmed</td><td><span class="badge-done">Done</span></td><td>三項測試已與 G-Reigns 確認意願</td></tr>
+    <tr><td>Test plan confirmation</td><td><span class="badge-tbd">Not started</span></td><td>需鎖定測試範圍、成功標準、報告格式</td></tr>
+    <tr><td>Equipment ready in lab</td><td><span class="badge-tbd">Not started</span></td><td>設備到位方式待確認</td></tr>
+    <tr><td>System integration ready</td><td><span class="badge-tbd">Not started</span></td><td>Pending equipment &amp; environment</td></tr>
+    <tr><td>Start interoperability test</td><td><span class="badge-tbd">Not started</span></td><td>—</td></tr>
+    <tr><td>Issue isolation / debug</td><td><span class="badge-tbd">Not started</span></td><td>—</td></tr>
+    <tr><td>Test report</td><td><span class="badge-tbd">Not started</span></td><td>Target：OCUDU Foundation 提交包之一</td></tr>
+    <tr><td>Vendor review / sign-off</td><td><span class="badge-tbd">Not started</span></td><td>Pending report</td></tr>
+  </tbody>
+</table>
+
+<p><strong>C1C.1 Throughput 測試</strong></p>
+<ul>
+  <li>C1C.1.1 確認測試環境（bandwidth、numerology、MCS、server 規格）</li>
+  <li>C1C.1.2 執行 DL / UL throughput 測試</li>
+  <li>C1C.1.3 記錄並文件化結果</li>
+</ul>
+
+<p><strong>C1C.2 Multi-vendor RU 互通性測試</strong> — 候選 RU 廠牌：WNC、Lite-ON（待設備確認）</p>
+<ul>
+  <li>C1C.2.1 確認 WNC / Lite-ON 設備到位方式與時程</li>
+  <li>C1C.2.2 執行各 RU 廠牌與 G-Reigns / OCUDU 的 interop 測試</li>
+  <li>C1C.2.3 記錄問題與 root cause，輸出 multi-vendor interop 比較報告</li>
+</ul>
+
+<p><strong>C1C.3 多 UE 測試</strong> — 目標：與現有 128 UE benchmarking 數據對齊</p>
+<ul>
+  <li>C1C.3.1 確認多 UE 場景所需 UE 設備</li>
+  <li>C1C.3.2 執行多 UE 場景，記錄 throughput / latency / stability</li>
+  <li>C1C.3.3 與 128 UE baseline 比較</li>
+</ul>
 
 <h4>Common validation items across vendors</h4>
 <ul>
@@ -737,7 +921,9 @@
   <li>C3.2 定義測試核心問題：要驗什麼、對誰有價值</li>
   <li>C3.3 設計 channel impairment scenario：fading、interference、mobility、RU impairment</li>
   <li>C3.4 定義量測指標：BLER、Throughput、Latency、compute load、power / thermal</li>
-  <li>C3.5 比較傳統 receiver vs. AI-native receiver KPI</li>
+  <li>C3.5 比較傳統 receiver vs. AI-native receiver KPI
+    <div class="milestone-box" style="margin-top:6px"><strong>3GPP RAN#112 確認（RP-261147）：</strong>MMSE-IRC = 傳統接收機 baseline（官方指定對照組）；通道模型使用 rCDL-C1 SCM。ITRI Layer 2 測試報告必須以此為基準，結果才具備 3GPP WI 語境下的可引用性。</div>
+  </li>
   <li>C3.6 定義模型漂移偵測方法</li>
   <li>C3.7 Step 3 結果文件化，支撐 Goal D / E 的差異化敘事</li>
 </ul>
@@ -776,6 +962,20 @@
   <li>C4.S4 整理設定參數與 access package：頻段、bandwidth、numerology、PTP、VLAN / IP、EMS login、log collection</li>
   <li>C4.S5 執行預演測試與 issue isolation，避免 plugfest 當天才暴露 cabling / timing / EMS access 問題</li>
   <li>C4.S6 產出 SONIC plugfest readiness note，作為對外協作與內部責任界線依據</li>
+</ul>
+
+<h4>C4.GR — G-Reigns Energy Saving rApp 整合測試（2026-06-29 新增）</h4>
+<blockquote>
+  <p><strong>Purpose：</strong>在 G-Reigns 設備上執行 energy saving rApp 整合測試，產出可提交至 OCUDU Foundation 的驗證結果。</p>
+  <p>⚠️ <strong>責任邊界待討論：</strong>rApp 歸屬（G-Reigns 自有 / ITRI C4 衡安那條 / 共同開發）、對接介面（O1 / NETCONF / SMO）的責任分工，需在正式啟動前釐清。</p>
+  <p><strong>Owner：</strong>TBD &nbsp;|&nbsp; <strong>Milestone：</strong>TBD（接 June baseline 之後） &nbsp;|&nbsp; <strong>Dependency：</strong>C1C G-Reigns E2E baseline 穩定；C4.0 rApp ↔ OCUDU 對接可行性評估完成</p>
+</blockquote>
+<ul>
+  <li>C4.GR.1 確認責任邊界：rApp 來源、O1 / NETCONF 對接由誰負責</li>
+  <li>C4.GR.2 確認 G-Reigns 設備上的 PM 資料可取得性（KPI 欄位、傳送格式）</li>
+  <li>C4.GR.3 建立 G-Reigns 專用測試拓樸：RU、EMS（若有）、OCUDU / DU、SMO / rApp</li>
+  <li>C4.GR.4 執行 rApp 決策迴路驗證（PM 資料 → rApp → O1 / NETCONF → RU 回饋）</li>
+  <li>C4.GR.5 記錄測試結果，輸出 energy saving rApp 整合測試報告</li>
 </ul>
 
 <h4>C4.1–C4.7（前置：C4.0 完成，Owner / Milestone 待 5/15 輸出後展開）</h4>
@@ -819,9 +1019,20 @@
   <p><strong>Next step：</strong>待 DeepSig F2F 會議後確認合作 scope、測試拓樸、資料需求、責任分工與時程。</p>
   <p><strong>Output：</strong>ISAC cooperation scope note + PoC roadmap（F2F 後展開）。</p>
 </blockquote>
+<div class="warn-box">
+  <p><strong>⚠️ 分架構原則（2026-06-29 確立）：</strong>LIONS 與 G-Reigns 測試不得共用同一 KPI 表，兩套架構各自獨立評估：</p>
+  <p>• <strong>LIONS</strong>：UE-TRP uplink bistatic sensing（UE 發、RU 收）</p>
+  <p>• <strong>G-Reigns</strong>：bistatic / multi-RU architecture（多 RU 協作感測）</p>
+</div>
+<div class="info-box">
+  <p><strong>ISAC-lite Validation Checklist v0.1 框架（2026-06-29，來源：Yale MIMO ISAC 研究 + W26 週報）：</strong></p>
+  <p>• 每個 sensing gain 必須伴隨 throughput / BLER / latency / resource cost 記錄（sensing KPI 不得脫離 communication impact）</p>
+  <p>• <strong>Phase 1 五層：</strong>data exposure → time/beam alignment → sensing accuracy → communication impact → governance/fallback</p>
+  <p>• <strong>Phase 2 擴充：</strong>self-interference rejection、RF isolation、mono-static RU capability（待 C5.ISAC.1/2 baseline 穩定後展開）</p>
+</div>
 <ul>
-  <li>C5.ISAC.1 <strong>LIONS &amp; DeepSig 合作線：</strong>先確認 LIONS RU / EMS / testbed 可提供的 sensing-relevant observability，例如 uplink signal、CSI、beam ID、timestamp、M-plane / O1 資料可取得性。</li>
-  <li>C5.ISAC.2 <strong>G-Reigns &amp; DeepSig 合作線：</strong>保留 FR1 bistatic / multi-RU sensing 合作方向；雖不參加 SONIC plugfest，仍可作為 ISAC 合作與後續 PoC 觀察線。</li>
+  <li>C5.ISAC.1 <strong>LIONS &amp; DeepSig 合作線（UE-TRP bistatic）：</strong>確認 LIONS RU / EMS / testbed 可提供的 sensing-relevant observability：uplink signal、CSI、beam ID、timestamp、M-plane / O1 資料可取得性；依 checklist Phase 1 五層設計 test profile。</li>
+  <li>C5.ISAC.2 <strong>G-Reigns &amp; DeepSig 合作線（bistatic / multi-RU）：</strong>定義多 RU 協作感測架構下的 test profile；使用獨立 KPI 表，不與 LIONS 混用；參考 Science Tokyo 59 dB SI rejection 研究評估 mono-static RU 可行性（Phase 2 前置研究）。</li>
   <li>C5.ISAC.3 <strong>F2F 後 scope 定義：</strong>確認是否連到 OCUDU / DeepSig ISAC material、AI-RAN Alliance WI-21、Digital Twin validation 或 field-data collection。</li>
 </ul>
 
@@ -852,6 +1063,9 @@
   ① Third-party validation &nbsp; ② Open benchmarking &nbsp; ③ GPU/CUDA acceleration testing &nbsp; ④ Energy-saving rApp use cases<br>
   此為高價值差異化論點，應盡快文件化。
 </div>
+<div class="info-box">
+  <p><strong>2026-06-02 Phoenix F2F 情報更新：</strong>VALOR（VIAVI）演示配置已出現 WNC RU + Fujitsu，VALOR 亞太盲點縮小；但 <strong>Pegatron / LIONS / 義傳（台灣三廠）仍完全不在 VALOR vendor matrix</strong>，差異化論述依然成立。D4AI 資料採集節點：全球 OTA 節點僅有美國（VALOR、ARC-OTA、Keysight）+ 新加坡（SUTD），亞太採集節點<strong>完全缺席</strong>，此為不可複製的稀缺性論述基礎。</p>
+</div>
 
 <h3>D1. 定義差異化定位敘事</h3>
 <blockquote><p>前置條件：無，可立即啟動 &nbsp;|&nbsp; 輸出：對外定位文件</p></blockquote>
@@ -862,6 +1076,8 @@
   <li>D1.4 文件化「ITRI 為 DeepSig 唯一具備四項聚焦的合作夥伴」論點，作為對外簡報核心素材</li>
   <li>D1.5 建立 TIP Community Lab vs. OTIC Lab 定位框架（中立性 + 台灣供應鏈接入）— <em>主動對外定框時的核心論點</em></li>
   <li>D1.6 規劃產發署亮點故事包裝：從生態系整合到國際技術合作 / 商機開拓的完整敘事 <a href="#ct-0-4" class="ct-badge">→ 0.4.4</a></li>
+  <li>D1.7 <strong>（2026-06-02 新增）</strong>建立 VALOR 差異化比較論述：VALOR 已覆蓋 WNC + Fujitsu，台灣三廠（Pegatron / LIONS / 義傳）為 VALOR 未覆蓋的明確空白；此為對 AI-RAN Alliance 社群的可溝通差異化證據，應文件化為標準答案</li>
+  <li>D1.8 <strong>（2026-06-02 新增）</strong>建立 D4AI 亞太 OTA 節點論述：Alliance D4AI TG 現有採集節點全在美國 + 新加坡（SUTD），亞太 RF 環境（台灣 urban / suburban / mMIMO 場域）完全缺席；此為超越「測試服務」的不可複製稀缺性論述，優先於 Endorsed Lab 申請角度 <a href="#ct-0-4" class="ct-badge">→ 0.4.3</a></li>
 </ul>
 
 <h3>D2. 對外溝通材料準備</h3>
@@ -901,16 +1117,18 @@
 <blockquote>
   <p><strong>現況：</strong>ITRI 已是 AI-RAN Alliance 會員。下一步是透過會員管道詢問如何成為 endorsed lab，條件與流程尚不清楚。</p>
   <p><strong>市場背景：</strong>業界感知 O-RAN Alliance 動作放慢，AI-RAN Alliance 動能上升；OTIC 數量過多，部分淪為 pay-to-pass，公信力稀釋。ITRI 的重點不在「也有一個認證」，而在凸顯無法被複製的差異化定位。Endorsed lab 認定是長期加分項，不是近期核心任務。</p>
+  <p><strong>2026-06-02 路徑新理解：</strong>Alliance <strong>沒有正式 endorsed lab 申請表</strong>。VALOR 的 Endorsed Lab 身分是 founding member + NTIA 政策資金 + 自有 WI（WI-10）三者疊加後由 TSC 指定。現行機制為 TSC Mandatory Benchmarking 決議：每個 WI 須指定對應 Alliance lab，路徑 = <strong>先進入 WI-to-Lab mapping → TSC 核可 → Endorsed Lab 身分</strong>。Alliance 已部署 WI Assessment Tool（Dual-LLM，2026-05-29），以「Technical Details 成果佔 25% 權重」為核心量化標準——<strong>有真實 lab 測試結果的 WI 報告，才是進入 mapping 的基礎</strong>。WI-1（Neural Receiver）lab slot 仍標示「Possibly（開放名額）」，為目前最具體的切入點。</p>
+  <p><strong>3GPP RAN#112 確認（2026-06-11）：</strong>Rel-21 時程正式落地 — <strong>RAN#115（Mar 2027）= 6G WI 批准 + Stage-1 freeze</strong>，即 WI-1 lab slot 競爭視窗截止點。MWC'27（Feb 2027）為對外展示節點，endorsed lab 身分須在 RAN#115 前確立。</p>
 </blockquote>
 
 <h3>E1. 釐清 Endorsed Lab 條件</h3>
-<blockquote><p>狀態：尚未啟動 &nbsp;|&nbsp; 輸出：endorsed lab 申請條件清單</p></blockquote>
+<blockquote><p>狀態：進行中 &nbsp;|&nbsp; 輸出：endorsed lab 進入路徑行動計畫</p></blockquote>
 <ul>
-  <li>E1.1 透過會員管道詢問 endorsed lab 申請流程與條件</li>
-  <li>E1.2 釐清實驗室能力門檻（設備、use case、測試項目）</li>
-  <li>E1.3 確認是否需要現有 endorsed lab 推薦或擔保</li>
-  <li>E1.4 釐清 endorsed lab 能獲得什麼（co-branding、working group、曝光）</li>
-  <li>E1.5 確認認定後的維持條件與更新週期</li>
+  <li>E1.1 <strong>【Immediate Action】</strong>向 AI-RAN Alliance WG1（透過 DeepSig 或洪柏鈞會員管道）確認 WI-1「Possibly」lab slot 申請方式：誰可提名、提名需附哪些佐證、TSC 核可時程</li>
+  <li>E1.2 確認 WI-1 lab slot 所需的技術佐證（測試項目類型、Phase 1/2/3 最低要求、WI report 格式）</li>
+  <li>E1.3 確認是否需要 WI lead（DeepSig）共同提名或背書</li>
+  <li>E1.4 釐清進入 WI-to-Lab mapping 後能獲得什麼（co-branding、Alliance 官方曝光、WI report 引用）</li>
+  <li>E1.5 確認 mapping 維持條件（定期提交測試結果、TMTG 評分門檻）</li>
 </ul>
 
 <h3>E2. 能力缺口評估</h3>
