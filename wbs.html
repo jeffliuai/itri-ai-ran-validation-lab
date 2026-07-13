@@ -259,8 +259,8 @@
 
 <h1>ITRI AI-RAN Validation Lab WBS</h1>
 <p class="doc-meta">
-  <span><strong>Version:</strong> v0.8</span>
-  <span><strong>Last updated:</strong> 2026-07-06 CST（補齊 W25 3GPP Rel-21 時程、W27 G-Reigns/Energy Saving 雙線、W28 OCUDU WG kickoff + TSC 治理 WG 追蹤）</span>
+  <span><strong>Version:</strong> v0.9</span>
+  <span><strong>Last updated:</strong> 2026-07-13 CST（依 IWCM/OCUDU Testing &amp; Validation Work Group Plan v2.0 更新 Goal A 定位澄清、Goal D RU diversity 差異化論述、C1.0 測項升級、C1.4 evidence grammar 對標、C6.2 報告格式、Goal E 認證路徑釐清）</span>
 </p>
 
 <h2 class="overview-h2">背景與目的</h2>
@@ -542,6 +542,7 @@ gantt
   <li>A1.3 確認是否有其他條件（CI/CD 貢獻、文件格式、審核流程）</li>
   <li>A1.4 確認 OCUDU 2028 roadmap 對 lab 角色定義的影響</li>
   <li>A1.5 確認時程與下一步行動</li>
+  <li>A1.6 <strong>【2026-07-13 新增】</strong>ITRI 定位為<strong>E2E 測試</strong>（對應 IWCM/OCUDU Testing &amp; Validation Work Group Plan v2.0 Phase 3 System Integration / Phase 4 Use Case Field Validation），非 Phase 1 Component/Unit 層級。需向 OCUDU 確認：ITRI 的 E2E 測試能力能否被承認 / 升級為 Phase 5 Conformance 所需的 RTEC 身分？或是 ITRI 作為 E2E validation 提供方，將證據餵給另一個獨立的 accredited RTEC 做最終合規簽核？兩種角色分工需明確釐清。</li>
 </ul>
 
 <h3>A2. 定義貢獻方式</h3>
@@ -690,6 +691,9 @@ gantt
     <tr><td>Vendor review / sign-off</td><td>廠商確認測試結果與可公開範圍</td><td>Reviewed report / submission package</td></tr>
   </tbody>
 </table>
+<div class="info-box">
+  <p><strong>【2026-07-13 確認採用】</strong>依 IWCM/OCUDU Testing &amp; Validation Work Group Plan v2.0 Section 5（RU Diversity）具體測項，升級 C1.0 測試流程顆粒度，新增以下測項：Fronthaul link-up / C-U-plane 合規（section extension header、beamforming ID/weight 訊令、PRACH/PUSCH/PDSCH framing）、Timing/sync（PTP IEEE 1588-2019、SyncE、O-RAN timing error budget <strong>T1a, Ta4</strong>）、M-plane 合規（NETCONF/YANG-based 設定管理）、Beamforming/天線設定互通性、RU 故障與復原行為（fronthaul link loss/restoration、reboot、alarm correlation）。後續應將這五項納入「System integration ready for test」與「Start interoperability test」兩個 Stage 的具體驗收標準，取代目前偏連通性層級的驗收方式。</p>
+</div>
 
 <h4>C1A. LIONS O-RU Interoperability Test</h4>
 <blockquote>
@@ -838,7 +842,11 @@ gantt
   <li>C1.1 參數設定驗證：center frequency、SSB ARFCN、bandwidth、numerology</li>
   <li>C1.2 O-RAN Fronthaul 驗證：eCPRI / M-plane / C-plane / U-plane</li>
   <li>C1.3 多廠商互通性比較 / 問題定位</li>
-  <li>C1.4 Step 1 結果彙整，提供 Goal A / Goal B 作為 proof object</li>
+  <li>C1.4 Step 1 結果彙整，提供 Goal A / Goal B 作為 proof object
+    <div class="info-box" style="margin-top:8px">
+      <p><strong>【2026-07-13 新增】</strong>外部 evidence grammar 對標：arXiv:2607.05146（「A Modular O-RAN Testbed Based on SRS Open Source O-CU/O-DU and Massive Beams Modular O-RU」，SRS + 德國新創 Massive Beams + TU Berlin，2026-07-06）證明歐洲小型新創已能完成 OCUDU + 第三方 RU 端到端整合並發表論文，抬高了「有效 OCUDU + O-RU 報告」的最低標準：architecture、split mode（O-RU/SDR 雙模式）、CUS/M-plane、radio parameters、beamforming use case 都需列清楚。C1.4 產出的 proof object 應對照此標準檢查完整度。</p>
+    </div>
+  </li>
 </ul>
 
 <h3>C2A. Step 2A — CPU PHY Path</h3>
@@ -1037,7 +1045,12 @@ gantt
 <blockquote><p>Output：可支撐 Goal A / B / D / E 的共用 proof package。</p></blockquote>
 <ul>
   <li>C6.1 建立可重現的測試程序文件</li>
-  <li>C6.2 制定第三方驗證報告格式</li>
+  <li>C6.2 制定第三方驗證報告格式
+    <ul>
+      <li>C6.2.1 <strong>（2026-07-13 新增）</strong>採用 <strong>JUnit XML</strong> 作為測試結果輸出格式標準，比照 IWCM/OCUDU Testing &amp; Validation Work Group Plan v2.0 Section 16 建議——這是 OCUDU 生態系統認定的廠商中立交換標準，被 Jenkins / GitLab CI / Azure DevOps 等 CI/CD 工具與 Allure / ReportPortal 等測試管理平台原生支援。</li>
+      <li>C6.2.2 <strong>（2026-07-13 新增）</strong>評估是否可透過 OCUDU TSC 治理管道（→ 0.2.5）主動參與此報告格式標準的制定過程，而非僅被動採用，作為比雙邊 DeepSig 關係更具治理份量的參與方式（呼應 D1.4 論點的延伸）。</li>
+    </ul>
+  </li>
   <li>C6.3 產出第一份完整 validation report</li>
   <li>C6.4 測試環境 setup guide 文件化（供外部廠商參考）</li>
   <li>C6.5 建立 capability-to-goal mapping：每項測試成果支撐哪一個 ecosystem outcome</li>
@@ -1108,6 +1121,7 @@ gantt
   <p><strong>市場背景：</strong>業界感知 O-RAN Alliance 動作放慢，AI-RAN Alliance 動能上升；OTIC 數量過多，部分淪為 pay-to-pass，公信力稀釋。ITRI 的重點不在「也有一個認證」，而在凸顯無法被複製的差異化定位。Endorsed lab 認定是長期加分項，不是近期核心任務。</p>
   <p><strong>2026-06-02 路徑新理解：</strong>Alliance <strong>沒有正式 endorsed lab 申請表</strong>。VALOR 的 Endorsed Lab 身分是 founding member + NTIA 政策資金 + 自有 WI（WI-10）三者疊加後由 TSC 指定。現行機制為 TSC Mandatory Benchmarking 決議：每個 WI 須指定對應 Alliance lab，路徑 = <strong>先進入 WI-to-Lab mapping → TSC 核可 → Endorsed Lab 身分</strong>。Alliance 已部署 WI Assessment Tool（Dual-LLM，2026-05-29），以「Technical Details 成果佔 25% 權重」為核心量化標準——<strong>有真實 lab 測試結果的 WI 報告，才是進入 mapping 的基礎</strong>。WI-1（Neural Receiver）lab slot 仍標示「Possibly（開放名額）」，為目前最具體的切入點。</p>
   <p><strong>3GPP RAN#112 確認（2026-06-11）：</strong>Rel-21 時程正式落地 — <strong>RAN#115（Mar 2027）= 6G WI 批准 + Stage-1 freeze</strong>，即 WI-1 lab slot 競爭視窗截止點。MWC'27（Feb 2027）為對外展示節點，endorsed lab 身分須在 RAN#115 前確立。</p>
+  <p><strong>【2026-07-13 新增】</strong>IWCM/OCUDU Testing &amp; Validation Work Group Plan v2.0 揭示另一條認證路徑：OCUDU 自己的 RTEC / Phase 5 Conformance 機制，與 AI-RAN Alliance 的 WI-to-Lab mapping 是否為同一件事、互通、或需分別經營，目前無法判斷，需向兩邊管道分別確認（→ 0.2.5 / A1.6）。</p>
 </blockquote>
 
 <h3>E1. 釐清 Endorsed Lab 條件</h3>
