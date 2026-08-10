@@ -66,7 +66,19 @@
 <p><strong>這篇論文做了什麼：</strong></p>
 <ul>
 <li>DeepSig 把 OCUDU 基地台中部分原本由 CPU 處理的 PHY 與 O-RAN fronthaul 運算搬到 GPU，並公布第一批 CPU／GPU 比較數據。</li>
-<li>在 NVIDIA DGX Spark GB10／ARM host 這套特定平台上，不同處理功能的速度提升幅度不同：<strong>PUSCH 最高 10.3 倍、PDSCH 最高 2.7 倍、split-8 low-PHY RX 最高 19.7 倍、O-FH BFP12 解壓縮最高 91.4 倍、PRACH 偵測最高 28.8 倍</strong>。</li>
+</ul>
+<p>在 NVIDIA DGX Spark GB10／ARM host 這套特定平台上，不同處理功能的速度提升幅度如下：</p>
+<table>
+<thead><tr><th>項目</th><th>白話意思</th><th>在基地台負責什麼</th><th>加速數字的意義</th></tr></thead>
+<tbody>
+<tr><td><strong>PUSCH：最高 10.3 倍</strong></td><td>手機把使用者資料傳給基地台</td><td>接收與處理上行資料，包括解調、通道估測及解碼前處理</td><td>GPU 執行部分上行資料處理工作的速度，最高為 CPU 的 10.3 倍</td></tr>
+<tr><td><strong>PDSCH：最高 2.7 倍</strong></td><td>基地台把使用者資料傳給手機</td><td>產生下行資料，包括編碼、調變及 PHY 資源處理</td><td>GPU 執行部分下行資料處理工作的速度，最高為 CPU 的 2.7 倍</td></tr>
+<tr><td><strong>Split-8 low-PHY RX：最高 19.7 倍</strong></td><td>把無線電收到的原始波形整理成後續 PHY 可以處理的資料</td><td>Split 8 架構下的接收端底層運算，例如 FFT 與資源格整理</td><td>GPU 執行接收端底層訊號轉換的速度，最高為 CPU 的 19.7 倍</td></tr>
+<tr><td><strong>O-FH BFP12 解壓縮：最高 91.4 倍</strong></td><td>把 O-RU 傳來的壓縮 IQ 資料還原</td><td>O-RAN fronthaul 為節省頻寬，會壓縮 IQ 資料；DU 收到後必須解壓縮</td><td>這類大量、規則且容易平行化的工作特別適合 GPU，最高為 CPU 的 91.4 倍</td></tr>
+<tr><td><strong>PRACH 偵測：最高 28.8 倍</strong></td><td>偵測是否有手機正在要求連上基地台</td><td>手機首次連線或重新同步時，偵測 Random Access Preamble</td><td>GPU 執行隨機接入訊號搜尋與偵測的速度，最高為 CPU 的 28.8 倍</td></tr>
+</tbody>
+</table>
+<ul>
 <li>PUSCH 的 CPU 與 GPU 測試結果非常接近，10% BLER 門檻只差 <strong>0.064 dB</strong>。白話來說，在這組測試條件下，運算加速並沒有明顯犧牲接收正確性。</li>
 <li>這套 GPU 運算架構涵蓋 PDSCH、PUSCH、SRS、PRACH 與 O-RAN fronthaul，未來也可作為 AI-RAN／Neural Receiver 執行 AI 模型的底層平台。</li>
 </ul>
@@ -74,6 +86,7 @@
 <ul>
 <li>這篇驗證的是<strong>傳統基地台訊號處理的 GPU 加速</strong>，不是 OmniPHY Neural Receiver 的效能驗證。</li>
 <li>上述倍數是個別功能在特定硬體與測試條件下的結果，<strong>不代表整套基地台可以直接加速 10 倍或 90 倍</strong>。</li>
+<li>這些數字也不代表使用者網速、基地台容量或端到端延遲會改善相同倍數；它們證明的是「個別運算模組適合用 GPU 加速」，整體系統效益仍需進一步測量。</li>
 <li>目前主要是單項效能測試與 dummy RU 測試，還不是接上真實 O-RU 的完整端到端結果。</li>
 <li>論文尚未回答實際部署最關心的耗電、長時間穩定性、延遲波動、散熱與故障復原，因此不能直接套用到 ITRI 現有伺服器或台灣 O-RU 環境。</li>
 </ul>
