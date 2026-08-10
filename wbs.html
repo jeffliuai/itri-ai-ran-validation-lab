@@ -259,8 +259,8 @@
 
 <h1>ITRI AI-RAN Validation Lab WBS</h1>
 <p class="doc-meta">
-  <span><strong>Version:</strong> v0.9</span>
-  <span><strong>Last updated:</strong> 2026-07-13 CST（依 IWCM/OCUDU Testing &amp; Validation Work Group Plan v2.0 更新 Goal A 定位澄清、Goal D RU diversity 差異化論述、C1.0 測項升級、C1.4 evidence grammar 對標、C6.2 報告格式、Goal E 認證路徑釐清）</span>
+  <span><strong>Version:</strong> v0.10</span>
+  <span><strong>Last updated:</strong> 2026-08-10 CST（新增 W33 外部訊號；本次僅更新資訊，尚未調整 WBS 任務與里程碑）</span>
 </p>
 
 <h2 class="overview-h2">背景與目的</h2>
@@ -276,6 +276,37 @@
   <li><a href="#goal-a"><strong>Goal A / B / D / E</strong></a>：OCUDU partner、vendor matrix、差異化定位、endorsed lab。</li>
   <li><a href="#goal-c"><strong>Goal C</strong></a>：技術核心，validation capability portfolio。</li>
 </ol>
+
+<h2 class="overview-h2" id="update-w33">本週狀態更新（2026-08-10，W33）</h2>
+<h3>OCUDU Ecosystem Developer Summit North America</h3>
+<blockquote><p>來源：<a href="https://ocudu.org/event/ocudu-ecosystem-developer-summit/">OCUDU Ecosystem Developer Summit</a>／<a href="https://events.linuxfoundation.org/ocudu-ecosystem-developer-summit-north-america/program/cfp/">Linux Foundation CFP</a></p></blockquote>
+<div class="info-box">
+  <ul>
+    <li><strong>活動時間與地點</strong>：2026-10-20～10-22，Alexandria, Virginia。</li>
+    <li><strong>活動定位</strong>：聚集 developers、operators、researchers、systems integrators 與 technology providers，交流 technical roadmap、deployment experience、live demonstration 與 open AI-native RAN 發展。</li>
+    <li><strong>與 ITRI Lab 直接相關的 CFP 主題</strong>：End-to-End Integration with Open RAN Ecosystems、Multi-Architecture Hardware Benchmarking、AI-Native RAN / Deep Learning at PHY、Performance Optimization、O-RAN Compliance and Interoperability、CI/CD/Continuous Testing。</li>
+    <li><strong>CFP 資訊</strong>：徵求 technical talk、case study、tutorial、demo、poster 與 community session；官方頁列出的截止時間為 <strong>2026-08-17 11:59 PM EDT</strong>。</li>
+    <li><strong>目前處置</strong>：先列為外部生態系訊號；是否參加、投稿或展示，以及對應成果範圍，後續另行討論。</li>
+  </ul>
+</div>
+
+<h3>DeepSig／OCUDU WG1 GPU PHY 與 O-RAN Fronthaul 論文</h3>
+<blockquote><p>來源：<a href="https://arxiv.org/abs/2608.04338">GPU-Resident CUDA Acceleration for OCUDU 5G PHY and O-RAN Fronthaul: Architecture and Preliminary Performance</a>（arXiv:2608.04338，2026-08-05）</p></blockquote>
+<div class="info-box">
+  <p><strong>公開量化結果：</strong></p>
+  <ul>
+    <li>NVIDIA DGX Spark GB10／ARM host 平台上，相對 production CPU path，最高報告 <strong>10.3× PUSCH、2.7× PDSCH、19.7× split-8 low-PHY RX、91.4× O-FH BFP12 decompression、28.8× PRACH detector</strong> speedup。</li>
+    <li>測試的 PUSCH CPU／GPU 10% BLER threshold 差異在 <strong>0.064 dB</strong> 內，首次把 performance 與 receiver correctness 放進同一份公開 evidence artifact。</li>
+    <li>架構涵蓋 PDSCH、PUSCH、SRS、PRACH、split-8 lower-PHY transforms，以及 O-RAN fronthaul IQ compression／decompression；GPU-resident dataflow 亦被定位為後續 AI-RAN／neural receiver 的 execution substrate。</li>
+  </ul>
+  <p><strong>解讀邊界：</strong></p>
+  <ul>
+    <li>本文是 <strong>CUDA-accelerated classical PHY／O-RAN fronthaul preliminary benchmark</strong>，不是 OmniPHY Neural Receiver 效能驗證。</li>
+    <li>部分結果屬 microbenchmark；dummy-RU multi-cell 測試未建立完整 split-8 lower PHY 或 split-7.2 O-FH real-RU E2E path。</li>
+    <li>尚缺 power／energy、p95／p99 latency、deadline miss、thermal、long-run stability、packet loss 與 failure recovery 證據，結果亦不能直接外推到 ITRI 的 x86＋discrete GPU 或實際台灣 O-RU 環境。</li>
+    <li><strong>目前處置</strong>：先列為 C2A／C2B 後續討論時的公開對標資料；本次尚未修改 capability、測項或里程碑。</li>
+  </ul>
+</div>
 
 <h2 class="overview-h2" id="update-w29">本週狀態更新（2026-07-13）</h2>
 <h3>OCUDU RTEC 測試驗證框架導入（IWCM Draft v2.0）</h3>
